@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800i');
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: gray;
+}
+
+h2 {
+    font-size: 2.4rem;
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+p {
+    font-size: 1rem;
+    color: white;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.player-card {
+    background: linear-gradient(to bottom, transparent 50%, #ea0024), url('img/default.png');
+    grid-column: 2 / -2;
+    grid-row: 2 / -2;
+    border-radius: 20px;
+    background-color: #4477C1;
+    background-position: center !important;
+    background-size: cover !important;
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-width: 300px;
+    max-width: 400px;
+    min-height: 30vh;
+    transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.player-card img {
+    max-width: 100%;
+}
+
+.player-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+}
+
+.player-name {
+    grid-row: 7 / span 2;
+    grid-column: 1 / span 2;
+    align-self: end;
+    padding: 0rem 0rem 1rem 1rem;
+}
+
+.classe {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    opacity: 0.75;
+    writing-mode: vertical-rl;
+    color: white;
+    grid-column: 2;
+    grid-row: 1 / span 5;
+    padding: 1.4rem;
+}
+
+.infos {
+    grid-row: 7 / span 2;
+    grid-column: 1 / span 2;
+    opacity: 0.6;
+    align-self: end;
+    padding: 0rem 0rem 4rem 1.2rem;
+}
+
+.infos p {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.25rem;
+    color: white;
+    margin: 0;
+}
+
+.pv {
+    font-weight: 800;
+    padding: 0 1.4rem 0 1.4rem;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+}
+
+.pv p {
+    font-size: 2rem;
+    margin: 0;
+    text-align: left;
+}
+
+pre {
+    margin-top: 2em;
+    max-width: 968px;
+    margin: 5rem auto;
+    font-size: 1.2rem;
+    color: gray;
+    text-align: left;
+
+    font-weight: 800;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* Centre horizontalement */
+    align-items: center;
+    /* Centre verticalement */
+    padding: 0 20px;
+}
+
+.main-content {
+    background: #fff;
+    padding: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Header et nav */
+header {
+    background-color: #031c3d;
+    color: #fff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 10px 20px;
+    width: 100%;
+    position: relative;
+}
+.navbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.navbar a:hover {
+    background-color: #ff4757;
+    color: #fff;
+}
+
+footer {
+    background-color: #031c3d;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 20px auto;
+}
+
+form input,
+form button {
+    margin: 5px 0;
+    padding: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Met la navbar en colonne */
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .logo {
+        position: static; /* Supprime l'absolu */
+        margin-bottom: 10px; /* Ajoute un espace sous le logo */
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.campagn{
+    display: flex;
+    border : 1px solid #ddd;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.Haut-Tableau{
+    background-color: #031c3d;
+    color: white;
+}
+.logo {
+    position: absolute;
+    left: 20px; 
+    height: 50px;
+    max-width: 150px;
+}
+.table-responsive {
+    overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Style de base du tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style des cellules */
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left; /* Alignement à gauche pour plus de lisibilité */
+}
+
+/* Mode mobile : Transforme les tableaux en affichage vertical */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none; /* Cache l'en-tête sur mobile */
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        background: #fff;
+        border-radius: 10px;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between; /* Espacement entre le label et la valeur */
+        align-items: center;
+        padding: 10px;
+        position: relative;
+    }
+
+    /* Améliorer la lisibilité des labels */
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #031c3d; /* Bleu foncé pour mieux distinguer */
+        flex: 1; /* Permet d'occuper l'espace sans chevaucher */
+        min-width: 100px; /* Largeur minimale pour éviter la superposition */
+    }
+}

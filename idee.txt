@@ -1,0 +1,4 @@
+niveau d'alerte nombre de jour sans date phished 
+plutot du n.n pour form campagn
+avec un token et pourtraqué qui a ouvert le mail c'est avec une image qui est caché avec une image caché qui comprend un token 
+ajout d'un champs datetime dans dataphishing pour savoir quand la données est renseigné
