@@ -37,6 +37,12 @@ class UserRepository
         $stmt->execute([':id' => $id]);
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $row ? $this->createInstance($row) : null;
+        return new User(
+            $row['id_user'],
+            $row['name_user'],
+            $row['firstname_user'],
+            $row['mail_user'],
+            $row['password_user'],
+        );
     }
 }
