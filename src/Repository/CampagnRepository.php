@@ -17,7 +17,7 @@ class CampagnRepository
 
     // public function getCampagn()
     // {
-    //     $query = 'SELECT * FROM campagns';
+    //     $query = 'SELECT * FROM CAMPAGNS';
     //     $stmt = $this->pdo->prepare($query);
     //     $stmt->execute();
     //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -25,7 +25,7 @@ class CampagnRepository
     
     public function getCampagn(): array
     {
-        $stmt = $this->pdo->query("SELECT * FROM campagns");
+        $stmt = $this->pdo->query("SELECT * FROM CAMPAGNS");
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return array_map(fn($row) => new Campagn(
@@ -38,7 +38,7 @@ class CampagnRepository
 
     public function getCampagnById(int $id): ?Campagn
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM campagns WHERE id_campagn = :id");
+        $stmt = $this->pdo->prepare("SELECT * FROM CAMPAGNS WHERE id_campagn = :id");
         $stmt->execute([':id' => $id]);
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);

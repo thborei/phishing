@@ -17,7 +17,7 @@ class UserRepository
 
     public function getUsers()
     {
-        $query = 'SELECT * FROM users';
+        $query = 'SELECT * FROM USERS';
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -33,7 +33,7 @@ class UserRepository
 
     public function getUser(int $id): ?User
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE id_user = :id");
+        $stmt = $this->pdo->prepare("SELECT * FROM USERS WHERE id_user = :id");
         $stmt->execute([':id' => $id]);
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);

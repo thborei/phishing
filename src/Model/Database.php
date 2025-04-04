@@ -27,7 +27,7 @@ class Database
         if (self::$pdo === null) {
             try {
                 // Informations de connexion
-                $host = "10.1.40.50/phpmyadmin"; // Nom du serveur MySQL
+                $host = "10.1.40.50"; // Nom du serveur MySQL
                 $port = 3306;
                 $dbname = 'projet v2'; // Nom de la base de données
                 $user = 'Admin'; // Utilisateur mysql
