@@ -27,11 +27,11 @@ class Database
         if (self::$pdo === null) {
             try {
                 // Informations de connexion
-                $host = 'localhost'; // Nom du serveur MySQL
+                $host = "10.1.40.50"; // Nom du serveur MySQL
                 $port = 3306;
                 $dbname = 'projet v2'; // Nom de la base de données
                 $user = 'root'; // Utilisateur mysql
-                $password = ''; // Mot de passe mysql
+                $password = 'root'; // Mot de passe mysql
 
                 // DSN MySQL
                 $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
