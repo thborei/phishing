@@ -42,6 +42,7 @@ class Database
                 // Configuration des attributs PDO
                 self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Exceptions pour les erreurs SQL
                 self::$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); // Récupération en tableau associatif
+                echo "Connexion réussie à la base de données !"; // Message de succès (à supprimer en production)
             } catch (PDOException $e) {
                 // Gestion des erreurs de connexion
                 die("Erreur de connexion à la base de données : " . $e->getMessage());
