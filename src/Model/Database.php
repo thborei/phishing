@@ -28,7 +28,7 @@ class Database
             try {
                 // Informations de connexion
                 $host = "10.1.40.50"; // Nom du serveur MySQL
-                $port = 8081;
+                $port = 3306;
                 $dbname = 'projet'; // Nom de la base de données
                 $user = 'root'; // Utilisateur mysql
                 $password = 'rootpassword'; // Mot de passe mysql
