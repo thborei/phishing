@@ -30,6 +30,9 @@ class CampagnController
     }
 
     public function create() {
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $type = $_POST['type'];
             $url = $_POST['url'];
