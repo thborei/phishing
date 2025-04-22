@@ -3,7 +3,7 @@ services:
     build: .
     container_name: cvapp-php-container
     volumes:
-      - ./:/var/www/html
+      - ./:/var/www/phish.net/public
     ports:
       - "8080:80"
     depends_on:

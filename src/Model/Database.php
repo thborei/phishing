@@ -28,10 +28,10 @@ class Database
             try {
                 // Informations de connexion
                 $host = "10.1.40.50"; // Nom du serveur MySQL
-                $port = 3306;
-                $dbname = 'projet v2'; // Nom de la base de données
-                $user = 'Admin'; // Utilisateur mysql
-                $password = 'IT$3cPW@dm'; // Mot de passe mysql
+                $port = 8081;
+                $dbname = 'projet'; // Nom de la base de données
+                $user = 'root'; // Utilisateur mysql
+                $password = 'rootpassword'; // Mot de passe mysql
 
                 // DSN MySQL
                 $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
