@@ -60,13 +60,15 @@ if (!empty($segments)) {
             break;
             // Cas où le premier segment de l'URL est 'about'.
         case 'campaigns':
-            var_dump($segments);
-            die;
+    
             if (!isset($segments[1])) {
                 $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> AfficherCampagn();
                 break;
             } else if ($segments[1] == 'create') {
+
+                var_dump($segments[1]);
+                die;
                 $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> create();
                 break;
