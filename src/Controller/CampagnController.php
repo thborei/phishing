@@ -86,5 +86,15 @@ class CampagnController
     public function result($id) {
         // afficher les résultats de la campagne
     }
+
+    public function formulaire($id) {
+        $campaign = $this->repository->getCampagnById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        }
+        $contenu = $this->moteur->render('campaigns/formulaire/index', ['campaign' => $campaign]);
+
+    }
     
 }

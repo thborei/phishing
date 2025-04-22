@@ -65,4 +65,5 @@ class CampagnRepository
         $stmt = $this->pdo->prepare("UPDATE CAMPAGNS SET type_campagn = :type, url_campagn = :url WHERE id_campagn = :id");
         $stmt->execute([':id' => $id, ':type' => $type, ':url' => $url]);
     }
+    
 }
