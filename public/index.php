@@ -70,7 +70,7 @@ if (!empty($segments)) {
                 break;
             } else if ($segments[1] == 'results') {
                 $AfficherCampagn = new CampagnController();
-                $AfficherCampagn -> results($segments[2]);
+                //$AfficherCampagn -> results($segments[2]);
                 break;
             } else {
                 $AfficherCampagn = new CampagnController();
