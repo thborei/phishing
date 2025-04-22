@@ -94,7 +94,12 @@ class CampagnController
 
         }
         $contenu = $this->moteur->render('campaigns/formulaire/index', ['campaign' => $campaign]);
-
+        
+        echo $this->moteur->render('indexView', [
+            'contenu' => $contenu,
+            'header' => $this->moteur->render('headerView'),
+            'footer' => $this->moteur->render('footerView')
+        ]);
     }
     
 }
