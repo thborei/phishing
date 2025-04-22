@@ -18,7 +18,7 @@
                     <td data-label="Nom"><?= htmlspecialchars($campaign->getType()) ?></td>
                     <td data-label="URL"><?= htmlspecialchars($campaign -> getUrl()) ?></td>
                     <td data-label="Actions">
-                        <a href="/campaigns/edit/<?= htmlspecialchars($campaign -> id) ?>"> Modifier</a><br>
+                        <a href="/campaigns/edit/<?= htmlspecialchars($campaign->getId()) ?>"> Modifier</a><br>
                         <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a>
                     </td>
                 </tr>
