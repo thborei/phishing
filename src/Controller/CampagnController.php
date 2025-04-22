@@ -42,9 +42,8 @@ class CampagnController
 
             // Enregistrement dans la base de données
             $this->repository->createCampagn($type, $url);
-            var_dump($_POST);
-        die;
             header('Location: /campaigns'); // Redirection après l'enregistrement
+            exit;
         } else {
             $contenu = $this->moteur->render('campaigns/form');
         
