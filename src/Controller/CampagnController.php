@@ -17,9 +17,9 @@ class CampagnController
     }
     public function AfficherCampagn()
     {
-        $campagns = $this->repository->getCampagn();
+        $campaigns = $this->repository->getCampaigns();
 
-        $contenu = $this->moteur->render('campaigns/index', ['campagns' => $campagns]);
+        $contenu = $this->moteur->render('campaigns/index', ['campaigns' => $campaigns]);
         
         
         echo $this->moteur->render('indexView', [

@@ -28,7 +28,7 @@ class CampagnRepository
     //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
     // } V1
     
-    public function getCampagn(): array
+    public function getCampaigns(): array
     {
         $stmt = $this->pdo->query("SELECT * FROM CAMPAGNS");
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);

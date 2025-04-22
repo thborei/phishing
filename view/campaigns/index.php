@@ -12,14 +12,14 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($campagns as $campagn): ?>
+            <?php foreach ($campaigns as $campaign): ?>
                 <tr>
-                    <td data-label="ID"><?= htmlspecialchars($campagn->getId()) ?></td>
-                    <td data-label="Nom"><?= htmlspecialchars($campagn->getType()) ?></td>
-                    <td data-label="URL"><?= htmlspecialchars($campagn -> getUrl()) ?></td>
+                    <td data-label="ID"><?= htmlspecialchars($campaign->getId()) ?></td>
+                    <td data-label="Nom"><?= htmlspecialchars($campaign->getType()) ?></td>
+                    <td data-label="URL"><?= htmlspecialchars($campaign -> getUrl()) ?></td>
                     <td data-label="Actions">
-                        <a href="/campaigns/edit/<?= htmlspecialchars($campagn -> id) ?>"> Modifier</a><br>
-                        <a href="/campaigns/results/<?= $campagn -> getId() ?>">Résultat</a>
+                        <a href="/campaigns/edit/<?= htmlspecialchars($campaign -> id) ?>"> Modifier</a><br>
+                        <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
