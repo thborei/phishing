@@ -51,8 +51,7 @@ $segments = explode('/', $url);
 // Vérifie si le tableau de segments n'est pas vide pour éviter d'exécuter le switch sur un tableau vide.
 if (!empty($segments)) {
     // Utilise le premier segment de l'URL comme indicateur pour le routage.
-    var_dump($segments);
-    die;
+    
     switch ($segments[0]) {
             // Pour le CRUD personnage
         case 'acceuil':
