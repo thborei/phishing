@@ -79,7 +79,7 @@ if (!empty($segments)) {
                 break;
             } else if ($segments[1] == 'formulaire') {
                 $AfficherCampagn = new CampagnController();
-                $AfficherCampagn -> formulaire();
+                $AfficherCampagn -> formulaire($segments[2]);
                 break;
             } else {
                 $AfficherCampagn = new CampagnController();
