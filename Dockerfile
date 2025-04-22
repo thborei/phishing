@@ -11,11 +11,14 @@ RUN apt-get update && apt-get install -y \
 
 RUN a2enmod rewrite
 
-COPY ./.htaccess /var/www/html/.htaccess
+COPY phish.net.conf /etc/apache2/sites-available/phish.net.conf
+# COPY ./.htaccess /var/www/html/.htaccess
+
+RUN a2ensite phish.net.conf && a2dissite 000-default.conf
 
 RUN docker-php-ext-install pdo pdo_mysql
 
-RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/phish.net
 
 ENV UMASK 002
 
