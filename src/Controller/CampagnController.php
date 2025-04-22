@@ -31,8 +31,6 @@ class CampagnController
 
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            var_dump($_POST);
-                die;
             $type = $_POST['type'];
             $url = $_POST['url'];
 
@@ -44,6 +42,8 @@ class CampagnController
 
             // Enregistrement dans la base de données
             $this->repository->createCampagn($type, $url);
+            var_dump($_POST);
+        die;
             header('Location: /campaigns'); // Redirection après l'enregistrement
         } else {
             $contenu = $this->moteur->render('campaigns/form');
