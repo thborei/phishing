@@ -66,9 +66,6 @@ if (!empty($segments)) {
                 $AfficherCampagn -> AfficherCampagn();
                 break;
             } else if ($segments[1] == 'create') {
-
-                var_dump($segments[1]);
-                die;
                 $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> create();
                 break;

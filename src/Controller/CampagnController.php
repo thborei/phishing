@@ -31,6 +31,8 @@ class CampagnController
 
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            var_dump($_POST);
+                die;
             $type = $_POST['type'];
             $url = $_POST['url'];
 
