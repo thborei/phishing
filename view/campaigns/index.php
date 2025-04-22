@@ -20,6 +20,9 @@
                     <td data-label="Actions">
                         <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>"> Modifier</a><br>
                         <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a>
+                        <?php if ($campaign->getType() === 'custom'): ?>
+                            <a href="/campaigns/formulaires">Formulaires</a>
+                        <?php endif; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
