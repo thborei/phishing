@@ -64,7 +64,7 @@ if (!empty($segments)) {
                 $AfficherCampagn -> AfficherCampagn();
                 break;
             }
-            
+
             if (is_numeric($segments[1] ?? null)){
                 $AfficherData = new DataController();
                 $AfficherData -> AfficherData($segments[1]);
@@ -110,4 +110,4 @@ if (!empty($segments)) {
     }
 }
 
-http_response_code(500); // Retourne un code HTTP 500 Internal Server Error si le code atteint ce point.
+http_response_code(404); // Retourne un code HTTP 404 Not found si le code atteint ce point.
