@@ -65,12 +65,6 @@ if (!empty($segments)) {
                 $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> AfficherCampagn();
                 break;
-            }
-
-            if (is_numeric($segments[1] ?? null)){
-                $AfficherData = new DataController();
-                $AfficherData -> AfficherData($segments[1]);
-                break;
             } else if ($segments[1] == 'create') {
                 $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> create();
