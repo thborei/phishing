@@ -21,7 +21,7 @@
                         <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>"> Modifier</a><br>
                         <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a>
                         <?php if ($campaign->getType() === 'custom'): ?>
-                            <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>">Formulaires</a>
+                            <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>">Formulaire</a>
                         <?php endif; ?>
                     </td>
                 </tr>
