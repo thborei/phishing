@@ -71,6 +71,7 @@ class CampagnController
             // Mise à jour dans la base de données
             $this->repository->updateCampagn($id, $type, $url);
             header('Location: /campaigns'); // Redirection après la mise à jour
+            exit;
         } else {
             $contenu = $this->moteur->render('campaigns/form', ['campaign' => $campaign]);
         
