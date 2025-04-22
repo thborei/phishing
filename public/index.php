@@ -55,15 +55,27 @@ if (!empty($segments)) {
                 $AfficherAcceuil -> AfficherAcceuil();
             break;
             // Cas où le premier segment de l'URL est 'about'.
-        case 'campagn':
+        case 'campaigns':
             if (is_numeric($segments[1] ?? null)){
                 $AfficherData = new DataController();
                 $AfficherData -> AfficherData($segments[1]);
                 break;
+            } else if ($segments[1] == 'create') {
+                $AfficherCampagn = new CampagnController();
+                $AfficherCampagn -> create();
+                break;
+            } else if ($segments[1] == 'update') {
+                $AfficherCampagn = new CampagnController();
+                $AfficherCampagn -> update($segments[2]);
+                break;
+            } else if ($segments[1] == 'results') {
+                $AfficherCampagn = new CampagnController();
+                $AfficherCampagn -> results($segments[2]);
+                break;
             } else {
-            $AfficherCampagn = new CampagnController();
-            $AfficherCampagn -> AfficherCampagn();
-            break;
+                $AfficherCampagn = new CampagnController();
+                $AfficherCampagn -> AfficherCampagn();
+                break;
             };
         case 'list':
             $AfficherListe = new ListController();

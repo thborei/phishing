@@ -1,5 +1,6 @@
 <h2>Liste des campagne</h2>
 
+<a href="/campaigns/create" class="btn btn-primary">Créer</a>
 <div class="table-responsive">
     <table>
         <thead>
@@ -13,12 +14,12 @@
         <tbody>
             <?php foreach ($campagns as $campagn): ?>
                 <tr>
-                    <td data-label="Nom"><?= htmlspecialchars($campagn->getId()) ?></td>
-                    <td data-label="Prénom"><?= htmlspecialchars($campagn->getType()) ?></td>
-                    <td data-label="Mail"><?= htmlspecialchars($campagn -> getUrl()) ?></td>
+                    <td data-label="ID"><?= htmlspecialchars($campagn->getId()) ?></td>
+                    <td data-label="Nom"><?= htmlspecialchars($campagn->getType()) ?></td>
+                    <td data-label="URL"><?= htmlspecialchars($campagn -> getUrl()) ?></td>
                     <td data-label="Actions">
-                        <a href=""> Contacter</a><br>
-                        <a href="campagn/<?= $campagn -> getId() ?>">Résultat</a>
+                        <a href="/campaigns/edit/<?= htmlspecialchars($campagn -> id) ?>"> Modifier</a><br>
+                        <a href="/campaigns/results/<?= $campagn -> getId() ?>">Résultat</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

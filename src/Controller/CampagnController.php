@@ -19,7 +19,7 @@ class CampagnController
     {
         $campagns = $this->repository->getCampagn();
 
-        $contenu = $this->moteur->render('campagnView', ['campagns' => $campagns]);
+        $contenu = $this->moteur->render('campaigns/index', ['campagns' => $campagns]);
         
         
         echo $this->moteur->render('indexView', [
@@ -28,4 +28,49 @@ class CampagnController
             'footer' => $this->moteur->render('footerView')
         ]);
     }
+
+    public function create() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $type = $_POST['type'];
+            $url = $_POST['url'];
+
+            // Validation des données
+            if (empty($type) || empty($url)) {
+                echo "Veuillez remplir tous les champs.";
+                return;
+            }
+
+            // Enregistrement dans la base de données
+            $this->repository->createCampagn($type, $url);
+            header('Location: /campaigns'); // Redirection après l'enregistrement
+        } else {
+            echo $this->moteur->render('campaigns/form');
+        }
+    }
+
+    public function update($id) {
+        $campaign = $this->repository->getCampagnById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $type = $_POST['type'];
+            $url = $_POST['url'];
+
+            // Validation des données
+            if (empty($type) || empty($url)) {
+                echo "Veuillez remplir tous les champs.";
+                return;
+            }
+
+            // Mise à jour dans la base de données
+            $this->repository->updateCampagn($id, $type, $url);
+            header('Location: /campaigns'); // Redirection après la mise à jour
+        } else {
+            echo $this->moteur->render('campaigns/form', ['campaign' => $campaign]);
+        }
+    }
+
+    public function result($id) {
+        // afficher les résultats de la campagne
+    }
+    
 }

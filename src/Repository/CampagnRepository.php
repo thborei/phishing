@@ -10,6 +10,11 @@ class CampagnRepository
 {
     private PDO $pdo;
 
+    protected const TYPES = [
+        'pre-defined' => 'Pré-définie',
+        'custom' => 'Personnalisée',
+    ];
+
     public function __construct()
     {
         $this->pdo = Database::getConnection();
@@ -47,5 +52,17 @@ class CampagnRepository
             $row['type_campagn'],
             $row['url_campagn'],
         );
+    }
+
+    public function createCampagn(string $type, string $url): void
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO CAMPAGNS (type_campagn, url_campagn) VALUES (:type, :url)");
+        $stmt->execute([':type' => $type, ':url' => $url]);
+    }
+
+    public function updateCampagn(int $id, string $type, string $url): void
+    {
+        $stmt = $this->pdo->prepare("UPDATE CAMPAGNS SET type_campagn = :type, url_campagn = :url WHERE id_campagn = :id");
+        $stmt->execute([':id' => $id, ':type' => $type, ':url' => $url]);
     }
 }
