@@ -44,7 +44,13 @@ class CampagnController
             $this->repository->createCampagn($type, $url);
             header('Location: /campaigns'); // Redirection après l'enregistrement
         } else {
-            echo $this->moteur->render('campaigns/form');
+            $contenu = $this->moteur->render('campaigns/form');
+        
+            echo $this->moteur->render('indexView', [
+                'contenu' => $contenu,
+                'header' => $this->moteur->render('headerView'),
+                'footer' => $this->moteur->render('footerView')
+            ]);
         }
     }
 
@@ -65,7 +71,13 @@ class CampagnController
             $this->repository->updateCampagn($id, $type, $url);
             header('Location: /campaigns'); // Redirection après la mise à jour
         } else {
-            echo $this->moteur->render('campaigns/form', ['campaign' => $campaign]);
+            $contenu = $this->moteur->render('campaigns/form', ['campaign' => $campaign]);
+        
+            echo $this->moteur->render('indexView', [
+                'contenu' => $contenu,
+                'header' => $this->moteur->render('headerView'),
+                'footer' => $this->moteur->render('footerView')
+            ]);
         }
     }
 
