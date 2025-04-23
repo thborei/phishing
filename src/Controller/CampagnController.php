@@ -17,6 +17,7 @@ class CampagnController
     {
         $this->repository = new CampagnRepository();
         $this->moteur = new MoteurDeRendu();
+        $this->fieldRepository = new FieldRepository();
     }
     public function AfficherCampagn()
     {
