@@ -7,9 +7,9 @@
 <div class="container">
     <form action="<?= !isset($field) ? '/campaigns/formulaire/create/'. $campaign->getId() : '/campaigns/formulaire/update/'.$field->getId() ?>" method="post">
     <div class="form-group row">
-            <label for="url" class="col-sm-2 col-form-label">Nome du champ</label>
+            <label for="url" class="col-sm-2 col-form-label">Nom du champ</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" placeholder="nom du field" name="name" value="<?= isset($campaign) ? htmlspecialchars($campaign->getName()) : '' ?>">
+                <input type="text" class="form-control" id="name" placeholder="nom du field" name="name" value="<?= isset($campaign) ? htmlspecialchars($campaign->getUrl()) : '' ?>">
             </div>
         </div>
         <div class="form-group">
