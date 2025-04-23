@@ -12,6 +12,7 @@ use App\Controller\CampagnController;
 use App\Controller\DataController;
 use App\Controller\ListController;
 use App\Controller\UserController;
+use App\Controller\FacebookController;
 
 // L'index.php nous servira de routeur : c'est le point d'entrée de notre application :
 // Il va traiter les requêtes HTTP et appeler les bons contrôleurs en fonction de l'URL demandée.
@@ -110,7 +111,11 @@ if (!empty($segments)) {
         case 'user':
             $AfficherUser = new UserController();
             $AfficherUser -> AfficherUser();
-            break;       
+            break;
+        case 'facebook':
+            $AfficherFacebook = new FacebookController();
+            $AfficherFacebook -> AfficherFacebook();
+            break;
             // Si aucun des cas ci-dessus ne correspond, le comportement par défaut est d'afficher la page d'accueil.
         case '': // Cas où l'URL est vide : page d'accueil. (Pour l'instant on redirige vers la liste des personnages)
             header('Location: acceuil');

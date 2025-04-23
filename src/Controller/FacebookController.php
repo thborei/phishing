@@ -2,24 +2,20 @@
 
 namespace App\Controller;
 
-use App\Repository\DataRepository;
 use App\MoteurDeRendu;
 
-class AcceuilController
+class FacebookController
 {
     private MoteurDeRendu $moteur;
-    private DataRepository $repository;
     
     public function __construct()
     {
-        $this->repository = new DataRepository();
         $this->moteur = new MoteurDeRendu();
     }
-    public function AfficherAcceuil()
+    public function AfficherFacebook()
     {
-        $users = $this->repository->getLastDataPhished();
 
-        $contenu = $this->moteur->render('acceuilView', ['users' => $users]);
+        $contenu = $this->moteur->render('facebook');
         
         
         echo $this->moteur->render('indexView', [

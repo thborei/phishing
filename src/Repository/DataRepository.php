@@ -52,8 +52,7 @@ class DataRepository
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([':id' => $id]);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($results);
-        die;
+       
     
         return array_map(fn($row) => new Data(
             $row['id_phishing'],
