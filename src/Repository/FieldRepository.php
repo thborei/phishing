@@ -17,15 +17,15 @@ class FieldRepository
     
     public function getFieldById(int $id): ?Field
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM FIELDS WHERE id_field = :id");
+        $stmt = $this->pdo->prepare("SELECT * FROM FIELDS WHERE id_fields = :id");
         $stmt->execute([':id' => $id]);
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $row ? new Field(
-            $row['id_field'],
-            $row['name_field'],
-            $row['type_field'],
+            $row['id_fields'],
+            $row['name_fields'],
+            $row['type_fields'],
             $row['id_campagn']
         ) : null ;
     }
@@ -61,6 +61,18 @@ class FieldRepository
             $row['type_fields'],
             $row['id_campagn'],
         )  ,$results);
+    }
+
+    public function updateField(int $id, string $name, string $type, int $id_campagn): void
+    {
+        $stmt = $this->pdo->prepare("UPDATE FIELDS SET name_fields = :name, type_fields = :type, id_campagn = :id_campagn WHERE id_fields = :id");
+        $stmt->execute([':id' => $id, ':name' => $name, ':type' => $type, ':id_campagn' => $id_campagn]);
+    }
+
+    public function deleteField(int $id): void
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM FIELDS WHERE id_fields = :id");
+        $stmt->execute([':id' => $id]);
     }
 
 }

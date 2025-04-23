@@ -89,6 +89,10 @@ if (!empty($segments)) {
                     $AfficherCampagn = new CampagnController();
                     $AfficherCampagn -> updateFormulaire($segments[3]);
                     break;
+                } else if ($segments[2] == 'delete') {
+                    $AfficherCampagn = new CampagnController();
+                    $AfficherCampagn -> deleteFormulaire($segments[3]);
+                    break;
                 }
             } else {
                 $AfficherCampagn = new CampagnController();

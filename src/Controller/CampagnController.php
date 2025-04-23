@@ -140,16 +140,17 @@ class CampagnController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $_POST['name'];
             $type = $_POST['type'];
-            $id_campagn = $_POST['id_campagn'];
+            $id_campagn = $field->getId_campagn();
+            $id_field = $field->getId();
 
             // Validation des données
-            if (empty($type) || empty($url) || empty($id_campagn)) {
+            if (empty($type) || empty($url)) {
                 echo "Veuillez remplir tous les champs.";
                 return;
             }
 
             // Enregistrement dans la base de données
-            $this->fieldRepository->createField($name, $type, $id_campagn);
+            $this->fieldRepository->updateField($id_field, $name, $type, $id_campagn);
             header('Location: /campaigns/formulaire/'.$campaign->getId()); // Redirection après l'enregistrement
             exit;
         } else {
@@ -161,5 +162,16 @@ class CampagnController
                 'footer' => $this->moteur->render('footerView')
             ]);
         }
+    }
+
+    public function deleteFormulaire($id) {
+        $field = $this->fieldRepository->getFieldById($id);
+        $campaign = $this->repository->getCampagnById($field->getId_campagn());
+
+        // Suppression du champ dans la base de données
+        $this->fieldRepository->deleteField($id);
+
+        header('Location: /campaigns/formulaire/'.$campaign->getId()); // Redirection après la suppression
+        exit;
     }
 }
