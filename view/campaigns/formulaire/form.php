@@ -1,4 +1,4 @@
-<?php if (isset($campaign)) : ?>
+<?php if (isset($field)) : ?>
     <h2>Modifier un formulaire</h2>
 <? else : ?>
     <h2>Créer un formulaire</h2>
