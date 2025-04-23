@@ -111,7 +111,7 @@ class CampagnController
             $name = $_POST['name'];
             $type = $_POST['type'];
             $id_campagn = $campaign->getId();
-
+            var_dump($id_campagn);
             // Validation des données
             if (empty($type) || empty($url) || empty($id_campagn)) {
                 echo "Veuillez remplir tous les champs.";
