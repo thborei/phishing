@@ -2,13 +2,16 @@
 
 namespace App\Controller;
 
+use App\Model\Field;
 use App\Repository\CampagnRepository;
+use App\Repository\FieldRepository;
 use App\MoteurDeRendu;
 
 class CampagnController
 {
     private MoteurDeRendu $moteur;
     private CampagnRepository $repository;
+    private FieldRepository $fieldRepository;
     
     public function __construct()
     {
@@ -89,7 +92,7 @@ class CampagnController
 
     public function formulaire($id) {
         $campaign = $this->repository->getCampagnById($id);
-        $fields = $this->repository->getFieldsByCampagn($id);
+        $fields = $this->fieldRepository->getFieldsByCampagn($id);
 
         $contenu = $this->moteur->render('campaigns/formulaire/index', ['campaign' => $campaign, 'fields' => $fields]);
 
@@ -100,8 +103,8 @@ class CampagnController
         ]);
     }
     
-    public function createFormulaire() {
-        $fields = $this->repository->getFields();
+    public function createFormulaire($id) {
+        $campaign = $this->repository->getCampagnById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $_POST['name'];
@@ -116,10 +119,40 @@ class CampagnController
 
             // Enregistrement dans la base de données
             $this->repository->createField($name, $type, $id_campagn);
-            header('Location: /campaigns'); // Redirection après l'enregistrement
+            header('Location: /campaigns/formulaire/'.$campaign->getId()); // Redirection après l'enregistrement
             exit;
         } else {
-            $contenu = $this->moteur->render('campaigns/formulaire/form', ['fields' => $fields]);
+            $contenu = $this->moteur->render('campaigns/formulaire/form', ['campaign' => $campaign]);
+        
+            echo $this->moteur->render('indexView', [
+                'contenu' => $contenu,
+                'header' => $this->moteur->render('headerView'),
+                'footer' => $this->moteur->render('footerView')
+            ]);
+        }
+    }
+
+    public function updateFormulaire($id) {
+        $field = $this->fieldRepository->getFieldById($id);
+        $campaign = $this->repository->getCampagnById($field->getId_campagn());
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = $_POST['name'];
+            $type = $_POST['type'];
+            $id_campagn = $_POST['id_campagn'];
+
+            // Validation des données
+            if (empty($type) || empty($url) || empty($id_campagn)) {
+                echo "Veuillez remplir tous les champs.";
+                return;
+            }
+
+            // Enregistrement dans la base de données
+            $this->fieldRepository->createField($name, $type, $id_campagn);
+            header('Location: /campaigns/formulaire/'.$campaign->getId()); // Redirection après l'enregistrement
+            exit;
+        } else {
+            $contenu = $this->moteur->render('campaigns/formulaire/form', ['field' => $field, 'campagn' => $campaign]);
         
             echo $this->moteur->render('indexView', [
                 'contenu' => $contenu,
