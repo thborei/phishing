@@ -60,7 +60,6 @@ if (!empty($segments)) {
             break;
             // Cas où le premier segment de l'URL est 'about'.
         case 'campaigns':
-    
             if (!isset($segments[1])) {
                 $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> AfficherCampagn();
@@ -78,7 +77,7 @@ if (!empty($segments)) {
                 //$AfficherCampagn -> results($segments[2]);
                 break;
             } else if ($segments[1] == 'formulaire') {
-                if (!isset($segments[2])) {
+                if (isset($segments[2]) && is_numeric($segments[2])) {
                     $AfficherCampagn = new CampagnController();
                     $AfficherCampagn -> formulaire($segments[2]);
                     break;
