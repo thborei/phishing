@@ -144,7 +144,7 @@ class CampagnController
             $id_field = $field->getId();
 
             // Validation des données
-            if (empty($type) || empty($url)) {
+            if (empty($type) || empty($type)) {
                 echo "Veuillez remplir tous les champs.";
                 return;
             }

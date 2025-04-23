@@ -16,7 +16,7 @@
             <label for="type">Type de formulaire</label>
             <select class="form-control" id="type" name="type">
                 <option value="text" <?= isset($field) && $field->getType() === 'text' ? 'selected' : '' ?>>Texte</option>
-                <option value="password" <?= isset($field) && $field->getType() === 'text' ? 'selected' : '' ?>>Mot de passe</option>
+                <option value="password" <?= isset($field) && $field->getType() === 'password' ? 'selected' : '' ?>>Mot de passe</option>
                 <option value="date" <?= isset($field) && $field->getType() === 'date' ? 'selected' : '' ?>>Date</option>
                 <option value="email" <?= isset($field) && $field->getType() === 'email' ? 'selected' : '' ?>>Email</option>
             </select>
