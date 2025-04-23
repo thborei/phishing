@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Model\Database;
 use App\Model\Campagn;
+use App\Model\Field;
 use PDO;
 
 class CampagnRepository
@@ -66,4 +67,23 @@ class CampagnRepository
         $stmt->execute([':id' => $id, ':type' => $type, ':url' => $url]);
     }
     
+    public function getFieldsByCampagn($id): array
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM FIELDS WHERE id_campagn = :id");
+        $stmt->execute([':id' => $id]);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        return array_map(fn($row) => new Field(
+            $row['id_fields'],
+            $row['name_fields'],
+            $row['type_fields'],
+            $row['id_campagn'],
+        )  ,$results);
+    }
+
+    public function createField(string $name, string $type, int $id_campagn): void
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO FIELDS (name_fields, type_fields, id_campagn) VALUES (:name, :type, :id_campagn)");
+        $stmt->execute([':name' => $name, ':type' => $type, ':id_campagn' => $id_campagn]);
+    }
 }

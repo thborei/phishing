@@ -89,12 +89,13 @@ class CampagnController
 
     public function formulaire($id) {
         $campaign = $this->repository->getCampagnById($id);
+        $fields = $this->repository->getFieldsByCampagn($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         }
-        $contenu = $this->moteur->render('campaigns/formulaire/index', ['campaign' => $campaign]);
-        
+        $contenu = $this->moteur->render('campaigns/formulaire/index', ['campaign' => $campaign, 'fields' => $fields]);
+
         echo $this->moteur->render('indexView', [
             'contenu' => $contenu,
             'header' => $this->moteur->render('headerView'),
