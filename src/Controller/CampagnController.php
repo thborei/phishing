@@ -110,7 +110,7 @@ class CampagnController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $_POST['name'];
             $type = $_POST['type'];
-            $id_campagn = $_POST['id_campagn'];
+            $id_campagn = $campaign->getId();
 
             // Validation des données
             if (empty($type) || empty($url) || empty($id_campagn)) {
