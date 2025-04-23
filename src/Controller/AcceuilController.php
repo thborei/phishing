@@ -18,6 +18,8 @@ class AcceuilController
     public function AfficherAcceuil()
     {
         $users = $this->repository->getLastDataPhished();
+        var_dump($users);
+        die;
 
         $contenu = $this->moteur->render('acceuilView', ['users' => $users]);
         
