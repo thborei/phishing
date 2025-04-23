@@ -78,9 +78,19 @@ if (!empty($segments)) {
                 //$AfficherCampagn -> results($segments[2]);
                 break;
             } else if ($segments[1] == 'formulaire') {
-                $AfficherCampagn = new CampagnController();
-                $AfficherCampagn -> formulaire($segments[2]);
-                break;
+                if (!isset($segments[2])) {
+                    $AfficherCampagn = new CampagnController();
+                    $AfficherCampagn -> formulaire($segments[2]);
+                    break;
+                } else if ($segments[2] == 'create') {
+                    $AfficherCampagn = new CampagnController();
+                    $AfficherCampagn -> createFormulaire($segments[3]);
+                    break;
+                } else if ($segments[2] == 'update') {
+                    $AfficherCampagn = new CampagnController();
+                    $AfficherCampagn -> updateFormulaire($segments[3]);
+                    break;
+                }
             } else {
                 $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> AfficherCampagn();

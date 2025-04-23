@@ -86,4 +86,17 @@ class CampagnRepository
         $stmt = $this->pdo->prepare("INSERT INTO FIELDS (name_fields, type_fields, id_campagn) VALUES (:name, :type, :id_campagn)");
         $stmt->execute([':name' => $name, ':type' => $type, ':id_campagn' => $id_campagn]);
     }
+
+    public function getFields(): array
+    {
+        $stmt = $this->pdo->query("SELECT * FROM FIELDS");
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return array_map(fn($row) => new Field(
+            $row['id_fields'],
+            $row['name_fields'],
+            $row['type_fields'],
+            $row['id_campagn'],
+        )  ,$results);
+    }
 }

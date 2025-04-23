@@ -5,7 +5,7 @@
 <? endif; ?>
 
 <div class="container">
-    <form action="<?= !isset($campaign) ? '/campaigns/create' : '/campaigns/update/'.$campaign->getId() ?>" method="post">
+    <form action="<?= !isset($field) ? '/campaigns/formulaire/create' : '/campaigns/formulaire/update/'.$field->getId() ?>" method="post">
         <div class="form-group row">
             <label for="url" class="col-sm-2 col-form-label">URL</label>
             <div class="col-sm-10">
@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="type">Type de la campagne</label>
+            <label for="type">Type de formulaire</label>
             <select class="form-control" id="type" name="type">
                 <option value="pre-defined" <?= isset($campaign) && $campaign->getType() === 'pre-defined' ? 'selected' : '' ?>>Pré-définie</option>
                 <option value="custom" <?= isset($campaign) && $campaign->getType() === 'custom' ? 'selected' : '' ?>>Personnalisée</option>
