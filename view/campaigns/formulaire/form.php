@@ -5,7 +5,7 @@
 <? endif; ?>
 
 <div class="container">
-    <form action="<?= !isset($field) ? '/campaigns/formulaire/create' : '/campaigns/formulaire/update/'.$field->getId() ?>" method="post">
+    <form action="<?= !isset($field) ? '/campaigns/formulaire/create'.$field->getId_campagn() : '/campaigns/formulaire/update/'.$field->getId() ?>" method="post">
         <div class="form-group row">
             <label for="url" class="col-sm-2 col-form-label">Nome du Formulaire</label>
             <div class="col-sm-10">
