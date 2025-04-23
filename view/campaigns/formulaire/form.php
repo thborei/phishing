@@ -1,3 +1,4 @@
+<?php var_dump($field); ?>
 <?php if (isset($field)) : ?>
     <h2>Modifier un formulaire</h2>
 <? else : ?>
