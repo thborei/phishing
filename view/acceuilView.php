@@ -14,10 +14,10 @@
         <tbody>
             <?php foreach ($users as $user): ?>
                 <tr>
-                    <td data-label="Nom"><?= htmlspecialchars($user->getName()) ?></td>
-                    <td data-label="Prénom"><?= htmlspecialchars($user->getFirstname()) ?></td>
-                    <td data-label="Mail"><?= htmlspecialchars($user->getMail()) ?></td>
-                    <td data-label="Mot de passe"><?= htmlspecialchars($user->getPassword()) ?></td>
+                    <td data-label="Nom"><?= htmlspecialchars($user->getJsonName()) ?></td>
+                    <td data-label="Prénom"><?= htmlspecialchars($user->getJsonName()) ?></td>
+                    <td data-label="Mail"><?= htmlspecialchars($user->getJsonMail()) ?></td>
+                    <td data-label="Mot de passe"><?= htmlspecialchars($user->getJsonPassword()) ?></td>
                     <td data-label="Actions">
                         <a href=""> Contacter</a><br>
                         <a href="list/<?= $user->getIduser() ?>">Liste</a>
