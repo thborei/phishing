@@ -14,12 +14,8 @@ class FacebookController
     }
     public function AfficherFacebook()
     {
-
-        $contenu = $this->moteur->render('facebook');
-        
-        
-        echo $this->moteur->render('indexView', [
-            'contenu' => $contenu,
+   
+        echo $this->moteur->render('facebook', [
             'header' => $this->moteur->render('headerView'),
             'footer' => $this->moteur->render('footerView')
         ]);

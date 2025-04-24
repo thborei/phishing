@@ -51,15 +51,11 @@ $segments = explode('/', $url);
 
 // Vérifie si le tableau de segments n'est pas vide pour éviter d'exécuter le switch sur un tableau vide.
 if (!empty($segments)) {
-    // Utilise le premier segment de l'URL comme indicateur pour le routage.
-    
     switch ($segments[0]) {
-            // Pour le CRUD personnage
         case 'acceuil':
                 $AfficherAcceuil = new AcceuilController();
                 $AfficherAcceuil -> AfficherAcceuil();
             break;
-            // Cas où le premier segment de l'URL est 'about'.
         case 'campaigns':
             if (!isset($segments[1])) {
                 $AfficherCampagn = new CampagnController();
@@ -75,7 +71,7 @@ if (!empty($segments)) {
                 break;
             } else if ($segments[1] == 'results') {
                 $AfficherCampagn = new CampagnController();
-                //$AfficherCampagn -> results($segments[2]);
+                // $AfficherCampagn -> results($segments[2]);
                 break;
             } else if ($segments[1] == 'formulaire') {
                 if (isset($segments[2]) && is_numeric($segments[2])) {
@@ -105,7 +101,6 @@ if (!empty($segments)) {
             $AfficherListe -> AfficherListe($segments[1]);
             break;
         case 'about':
-            // Affiche la page "À propos".
             echo "Page À propos";
             break;
         case 'user':
@@ -116,8 +111,7 @@ if (!empty($segments)) {
             $AfficherFacebook = new FacebookController();
             $AfficherFacebook -> AfficherFacebook();
             break;
-            // Si aucun des cas ci-dessus ne correspond, le comportement par défaut est d'afficher la page d'accueil.
-        case '': // Cas où l'URL est vide : page d'accueil. (Pour l'instant on redirige vers la liste des personnages)
+       case '':
             header('Location: acceuil');
             exit();
             break;
