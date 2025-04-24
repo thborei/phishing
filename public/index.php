@@ -116,6 +116,7 @@ if (!empty($segments)) {
                 $AfficherCampagn = new FacebookController();
                 $AfficherCampagn -> create();
                 break;
+            }
        case '':
             header('Location: acceuil');
             exit();
