@@ -108,9 +108,14 @@ if (!empty($segments)) {
             $AfficherUser -> AfficherUser();
             break;
         case 'facebook':
-            $AfficherFacebook = new FacebookController();
-            $AfficherFacebook -> AfficherFacebook();
-            break;
+            if (!isset($segments[1])) {
+                $AfficherFacebook = new FacebookController();
+                $AfficherFacebook -> AfficherFacebook();
+                break;
+            } else if ($segments[1] == 'create') {
+                $AfficherCampagn = new FacebookController();
+                $AfficherCampagn -> create();
+                break;
        case '':
             header('Location: acceuil');
             exit();

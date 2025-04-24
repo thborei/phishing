@@ -26,3 +26,25 @@
         </div>
     </form>
 </div>
+<div id="predefinedFields" style="display: none; margin-top: 1rem;">
+    <label for="predefinedOptions">Options prédéfinies :</label>
+    <select class="form-control" id="predefinedOptions" name="predefinedOptions">
+        <option value="Facebook">Facebook</option>
+        <option value="Google">Google</option>
+    </select>
+</div>
+<script>
+function toggleSecondSelect() {
+    const typeSelect = document.getElementById("type");
+    const secondSelect = document.getElementById("predefinedFields");
+
+    if (typeSelect.value === "pre-defined") {
+        secondSelect.style.display = "block";
+    } else {
+        secondSelect.style.display = "none";
+    }
+}
+
+// Exécuter au chargement pour afficher correctement selon la valeur déjà sélectionnée
+document.addEventListener("DOMContentLoaded", toggleSecondSelect);
+</script>

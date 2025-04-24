@@ -78,4 +78,14 @@ class DataRepository
             $row['id_user']
         )  ,$results);
     }
+
+    public function createData($json, $id_campagn, $id_user)
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO DATA_PHISHINGS (json_phishing, date_phishing, id_campagn, id_user) VALUES (:json, NOW(), :id_campagn, :id_user)");
+        $stmt->execute([
+            ':json' => $json,
+            ':id_campagn' => $id_campagn,
+            ':id_user' => $id_user
+        ]);
+    }
 }
