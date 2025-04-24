@@ -18,6 +18,13 @@
                 <option value="pre-defined" <?= isset($campaign) && $campaign->getType() === 'pre-defined' ? 'selected' : '' ?>>Pré-définie</option>
                 <option value="custom" <?= isset($campaign) && $campaign->getType() === 'custom' ? 'selected' : '' ?>>Personnalisée</option>
             </select>
+            <div id="predefinedFields" style="display: none; margin-top: 1rem;">
+                <label for="predefinedOptions">Options prédéfinies :</label>
+                <select class="form-control" id="predefinedOptions" name="predefinedOptions">
+                    <option value="Facebook">Facebook</option>
+                    <option value="Google">Google</option>
+                </select>
+            </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
@@ -26,13 +33,7 @@
         </div>
     </form>
 </div>
-<div id="predefinedFields" style="display: none; margin-top: 1rem;">
-    <label for="predefinedOptions">Options prédéfinies :</label>
-    <select class="form-control" id="predefinedOptions" name="predefinedOptions">
-        <option value="Facebook">Facebook</option>
-        <option value="Google">Google</option>
-    </select>
-</div>
+
 <script>
 function toggleSecondSelect() {
     const typeSelect = document.getElementById("type");
