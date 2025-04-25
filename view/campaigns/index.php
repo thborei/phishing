@@ -22,7 +22,7 @@
                         <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a>
                         <?php if ($campaign->getType() === 'custom'): ?>
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>">Formulaire</a>
-                            <button>Afficher QR code</button>
+                            <button id="openPopupBtn">Afficher l'image</button>
                         <?php endif; ?>
                     </td>
                 </tr>
@@ -32,7 +32,6 @@
 </div>
 <button id="openPopupBtn">Afficher l'image</button>
 
-<!-- La pop-up contenant l'image -->
 <div id="popup" class="popup">
     <div class="popup-content">
         <span id="closePopupBtn" class="close-btn">&times;</span>
