@@ -37,6 +37,7 @@ class CampagnController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $type = $_POST['type'];
             $url = $_POST['url'];
+            $predifine = $_POST['predefinedOptions'] ?? null; // Récupération de l'option prédéfinie si elle est sélectionnée
 
             // Validation des données
             if (empty($type) || empty($url)) {
@@ -45,7 +46,7 @@ class CampagnController
             }
 
             // Enregistrement dans la base de données
-            $this->repository->createCampagn($type, $url);
+            $this->repository->createCampagn($type, $url, $predifine);
             header('Location: /campaigns'); // Redirection après l'enregistrement
             exit;
         } else {
