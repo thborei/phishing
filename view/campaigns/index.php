@@ -19,7 +19,7 @@
                     <td data-label="URL"><?= htmlspecialchars($campaign -> getUrl()) ?></td>
                     <td data-label="Actions">
                         <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>"> Modifier</a><br>
-                        <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a>
+                        <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a><br>
                         <?php if ($campaign->getType() === 'custom'): ?>
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>">Formulaire</a>
                             <button id="openPopupBtn">Afficher l'image</button>
@@ -30,7 +30,6 @@
         </tbody>
     </table>
 </div>
-<button id="openPopupBtn">Afficher l'image</button>
 
 <div id="popup" class="popup">
     <div class="popup-content">
