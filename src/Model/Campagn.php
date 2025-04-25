@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Model;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
 
 class Campagn
 {
@@ -30,4 +32,18 @@ class Campagn
     {
         return $this->url;
     }
+    public function createQrcode($url):string
+    {
+        $qrCode = new QrCode('10.1.40.50:8080/'.$url);
+    
+        $writer = new PngWriter();
+        $result = $writer->write($qrCode);
+        $filePath = './img/qrCode.png';
+
+        file_put_contents($filePath, $result->getString());
+        $dataUri = $result->getDataUri();
+
+        return $dataUri;
+    }
+
 }

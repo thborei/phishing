@@ -22,6 +22,7 @@
                         <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a>
                         <?php if ($campaign->getType() === 'custom'): ?>
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>">Formulaire</a>
+                            <button>Afficher QR code</button>
                         <?php endif; ?>
                     </td>
                 </tr>
@@ -29,3 +30,34 @@
         </tbody>
     </table>
 </div>
+<button id="openPopupBtn">Afficher l'image</button>
+
+<!-- La pop-up contenant l'image -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span id="closePopupBtn" class="close-btn">&times;</span>
+        <img src="<?= $campaign -> createQrcode($campaign -> getUrl()) ?>" alt="QR Code" class="popup-image">
+    </div>
+</div>
+<script>
+const openPopupBtn = document.getElementById("openPopupBtn");
+const popup = document.getElementById("popup");
+const closePopupBtn = document.getElementById("closePopupBtn");
+
+// Ouvre la pop-up lorsque le bouton est cliqué
+openPopupBtn.addEventListener("click", function() {
+    popup.style.display = "flex"; // Affiche la pop-up
+});
+
+// Ferme la pop-up lorsque le bouton de fermeture est cliqué
+closePopupBtn.addEventListener("click", function() {
+    popup.style.display = "none"; // Cache la pop-up
+});
+
+// Ferme la pop-up si l'utilisateur clique en dehors de la fenêtre modale
+window.addEventListener("click", function(event) {
+    if (event.target === popup) {
+        popup.style.display = "none"; // Cache la pop-up
+    }
+});
+</script>
