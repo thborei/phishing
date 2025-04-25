@@ -20,9 +20,9 @@
                     <td data-label="Actions">
                         <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>"> Modifier</a><br>
                         <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a><br>
+                        <button id="openPopupBtn">Afficher l'image</button>
                         <?php if ($campaign->getType() === 'custom'): ?>
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>">Formulaire</a>
-                            <button id="openPopupBtn">Afficher l'image</button>
                         <?php endif; ?>
                     </td>
                 </tr>
@@ -31,7 +31,7 @@
     </table>
 </div>
 
-<div id="popup" class="popup">
+<div id="popup" class="popup" display="none">
     <div class="popup-content">
         <span id="closePopupBtn" class="close-btn">&times;</span>
         <img src="<?= $campaign -> createQrcode($campaign -> getUrl()) ?>" alt="QR Code" class="popup-image">
