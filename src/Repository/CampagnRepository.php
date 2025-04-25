@@ -57,7 +57,7 @@ class CampagnRepository
 
     public function createCampagn(string $type, string $url, string $predifine): void
     {
-        $stmt = $this->pdo->prepare("INSERT INTO CAMPAGNS (type_campagn, url_campagn) VALUES (:type, :url, :predifine)");
+        $stmt = $this->pdo->prepare("INSERT INTO CAMPAGNS (type_campagn, url_campagn, predefine_campagn) VALUES (:type, :url, :predifine)");
         $stmt->execute([':type' => $type, ':url' => $url, ':predifine' => $predifine]);
     }
 
