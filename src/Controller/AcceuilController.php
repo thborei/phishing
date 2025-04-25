@@ -19,11 +19,13 @@ class AcceuilController
     }
     public function AfficherAcceuil()
     {
-        $qrCode = new QrCode('Ceci est un QR code de test 🚀');
+        $qrCode = new QrCode('https://10.1.40.50/facebook');
     
         $writer = new PngWriter();
         $result = $writer->write($qrCode);
-        $filePath = './img/qrCode.png'; // Chemin où vous souhaitez enregistrer le QR code
+        $filePath = './img/qrCode.png';
+
+        file_put_contents($filePath, $result->getString());
 
         $dataUri = $result->getDataUri();
 
