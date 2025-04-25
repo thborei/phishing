@@ -1,5 +1,6 @@
 <h2>Liste des 10 derniers employés hameçonnés</h2>
 <img src="<?= $qrCode ?>" alt="QR Code" class="qr-code">
+<img src="./img/qrCode.png" alt="QR Code" class="qr-code">
 <div class="table-responsive">
     <table>
         <thead>

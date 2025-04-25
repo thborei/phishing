@@ -19,19 +19,19 @@ class AcceuilController
     }
     public function AfficherAcceuil()
     {
-        $qrCode = new QrCode('https://10.1.40.50/facebook');
+        // $qrCode = new QrCode('https://10.1.40.50/facebook');
     
-        $writer = new PngWriter();
-        $result = $writer->write($qrCode);
-        $filePath = './img/qrCode.png';
+        // $writer = new PngWriter();
+        // $result = $writer->write($qrCode);
+        // $filePath = './img/qrCode.png';
 
-        file_put_contents($filePath, $result->getString());
+        // file_put_contents($filePath, $result->getString());
 
-        $dataUri = $result->getDataUri();
+        // $dataUri = $result->getDataUri();
 
         $users = $this->repository->getLastDataPhished();
 
-        $contenu = $this->moteur->render('acceuilView', ['users' => $users, 'qrCode' => $dataUri]);
+        $contenu = $this->moteur->render('acceuilView', ['users' => $users]);//, 'qrCode' => $dataUri]);
         
         
         echo $this->moteur->render('indexView', [
