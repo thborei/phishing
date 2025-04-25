@@ -4,34 +4,25 @@ namespace App\Controller;
 
 use App\Repository\DataRepository;
 use App\MoteurDeRendu;
-use Endroid\QrCode\QrCode;
-use Endroid\QrCode\Writer\PngWriter;
+use App\Controller\CampagnController;
 
 class AcceuilController
 {
     private MoteurDeRendu $moteur;
     private DataRepository $repository;
+    private CampagnController $campagnController;
     
     public function __construct()
     {
         $this->repository = new DataRepository();
         $this->moteur = new MoteurDeRendu();
+        $this->campagnController = new CampagnController();
     }
     public function AfficherAcceuil()
     {
-        // $qrCode = new QrCode('https://10.1.40.50/facebook');
-    
-        // $writer = new PngWriter();
-        // $result = $writer->write($qrCode);
-        // $filePath = './img/qrCode.png';
-
-        // file_put_contents($filePath, $result->getString());
-
-        // $dataUri = $result->getDataUri();
-
         $users = $this->repository->getLastDataPhished();
 
-        $contenu = $this->moteur->render('acceuilView', ['users' => $users]);//, 'qrCode' => $dataUri]);
+        $contenu = $this->moteur->render('acceuilView', ['users' => $users]);
         
         
         echo $this->moteur->render('indexView', [

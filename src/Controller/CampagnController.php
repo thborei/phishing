@@ -6,6 +6,9 @@ use App\Model\Field;
 use App\Repository\CampagnRepository;
 use App\Repository\FieldRepository;
 use App\MoteurDeRendu;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
+
 
 class CampagnController
 {
@@ -19,6 +22,20 @@ class CampagnController
         $this->moteur = new MoteurDeRendu();
         $this->fieldRepository = new FieldRepository();
     }
+    public function CreateQrcode($url)
+    {
+        $qrCode = new QrCode($url);
+    
+        $writer = new PngWriter();
+        $result = $writer->write($qrCode);
+        $filePath = './img/qrCode.png';
+
+        file_put_contents($filePath, $result->getString());
+        $dataUri = $result->getDataUri();
+
+        return $dataUri;
+    }
+
     public function AfficherCampagn()
     {
         $campaigns = $this->repository->getCampaigns();

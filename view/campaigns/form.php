@@ -45,7 +45,7 @@ function toggleSecondSelect() {
         secondSelect.style.display = "none";
     }
 }
-
+document.getElementById("type").addEventListener("change", toggleSecondSelect);
 // Exécuter au chargement pour afficher correctement selon la valeur déjà sélectionnée
 document.addEventListener("DOMContentLoaded", toggleSecondSelect);
 </script>
