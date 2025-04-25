@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Repository\DataRepository;
 use App\MoteurDeRendu;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
 
 class AcceuilController
 {
@@ -17,9 +19,16 @@ class AcceuilController
     }
     public function AfficherAcceuil()
     {
+        $qrCode = new QrCode('Ceci est un QR code de test 🚀');
+    
+        $writer = new PngWriter();
+        $result = $writer->write($qrCode);
+
+        $dataUri = $result->getDataUri();
+
         $users = $this->repository->getLastDataPhished();
 
-        $contenu = $this->moteur->render('acceuilView', ['users' => $users]);
+        $contenu = $this->moteur->render('acceuilView', ['users' => $users, 'qrCode' => $dataUri]);
         
         
         echo $this->moteur->render('indexView', [

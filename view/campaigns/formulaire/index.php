@@ -1,12 +1,12 @@
-<h2>Liste des formulaires</h2>
+<h2>Liste des Champs</h2>
 
 <a href="/campaigns/formulaire/create/<?= htmlspecialchars($campaign->getId()) ?>" class="btn btn-primary">Ajouter un formulaire</a>
 <div class="table-responsive">
     <table>
         <thead>
             <tr class="Haut-Tableau">
-                <th>Numéro du formulaire</th>
-                <th>Nom du formulaire</th>
+                <th>Numéro du Champ</th>
+                <th>Nom du Champ</th>
                 <th>Type</th>
                 <th>Action</th>
             </tr>

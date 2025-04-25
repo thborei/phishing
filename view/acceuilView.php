@@ -1,5 +1,5 @@
 <h2>Liste des 10 derniers employés hameçonnés</h2>
-
+<?php var_dump($qrCode); ?>
 <div class="table-responsive">
     <table>
         <thead>
