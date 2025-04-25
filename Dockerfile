@@ -1,10 +1,13 @@
 FROM php:8.2-apache
 
-# Installer des outils utiles
+# Installer des outils utiles + dépendances GD
 RUN apt-get update && apt-get install -y \
     git \
     curl \
     wget \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Activer mod_rewrite pour le .htaccess
@@ -17,7 +20,8 @@ COPY phish.net.conf /etc/apache2/sites-available/phish.net.conf
 RUN a2ensite phish.net.conf && a2dissite 000-default.conf
 
 # Installer les extensions PHP nécessaires
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd pdo pdo_mysql
 
 # Exposer les ports (par défaut, Apache écoute sur 80)
 EXPOSE 80 443
