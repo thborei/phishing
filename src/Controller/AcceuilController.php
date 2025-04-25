@@ -23,6 +23,7 @@ class AcceuilController
     
         $writer = new PngWriter();
         $result = $writer->write($qrCode);
+        $filePath = './img/qrCode.png'; // Chemin où vous souhaitez enregistrer le QR code
 
         $dataUri = $result->getDataUri();
 
