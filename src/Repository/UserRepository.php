@@ -47,7 +47,7 @@ class UserRepository
     }
     public function LogIn(string $mail, string $password)
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM Login WHERE mail_user = :mail AND password_user = :password LIMIT 1");
+        $stmt = $this->pdo->prepare("SELECT * FROM Login WHERE mail_login = :mail AND password_login = :password LIMIT 1");
         $stmt->execute([':mail' => $mail, ':password' => $password]);
 
         $user = $stmt->fetch();
