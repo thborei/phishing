@@ -62,4 +62,10 @@ class UserRepository
         }
     }
 
+    public function Logout()
+    {
+        session_destroy();
+        header('Location: /login');
+    }
+
 }

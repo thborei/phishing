@@ -49,6 +49,7 @@ class LoginController
     public function Logout()
     {
         session_destroy();
+        echo "Deconnexion !";
         header('Location: /login');
     }
 }
