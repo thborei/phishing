@@ -16,19 +16,20 @@
                 <tr>
                     <td data-label="ID"><?= htmlspecialchars($campaign->getId()) ?></td>
                     <td data-label="Nom"><?= htmlspecialchars($campaign->getType()) ?></td>
-                    <td data-label="URL"><?= htmlspecialchars($campaign -> getUrl()) ?></td>
-                    <td data-label="Actions">
-                        <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>"> Modifier</a><br>
-                        <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a><br>
-                        <button id="openPopupBtn">Afficher l'image</button>
+                    <td data-label="URL"><?= htmlspecialchars($campaign -> getUrl()) ?>
+                    <button id="openPopupBtn">Afficher l'image</button>
                         <div id="popup" class="popup" display="none">
                             <div class="popup-content">
                                 <span id="closePopupBtn" class="close-btn">&times;</span>
                                 <img src="<?= $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId()) ?>" alt="QR Code" class="popup-image">
                             </div>
                         </div>
+                    </td>
+                    <td data-label="Actions">
+                        <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>"> Modifier</a><br>
+                        <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a><br>
                         <?php if ($campaign->getType() === 'custom'): ?>
-                            <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>">Formulaire</a>
+                            <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>">Formulaire </a>
                         <?php endif; ?>
                     </td>
                 </tr>

@@ -117,7 +117,7 @@ if (!empty($segments)) {
                 $AfficherCampagn -> create();
                 break;
             }
-       case '':
+        case '':
             header('Location: acceuil');
             exit();
             break;

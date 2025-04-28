@@ -34,6 +34,8 @@ class Campagn
     }
     public function createQrcode($url, $path):string
     {
+        var_dump($url);
+        var_dump($path);
         $qrCode = new QrCode('http://10.1.40.50:8080/'.$url);
     
         $writer = new PngWriter();
