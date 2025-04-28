@@ -96,6 +96,16 @@ if (!empty($segments)) {
                 $AfficherCampagn -> AfficherCampagn();
                 break;
             };
+        case 'facebook':
+            if (!isset($segments[1])) {
+                $AfficherFacebook = new FacebookController();
+                $AfficherFacebook -> AfficherFacebook();
+                break;
+            } else if ($segments[1] == 'create') {
+                $AfficherCampagn = new FacebookController();
+                $AfficherCampagn -> create();
+                break;
+            }            
         case 'list':
             $AfficherListe = new ListController();
             $AfficherListe -> AfficherListe($segments[1]);
@@ -107,16 +117,7 @@ if (!empty($segments)) {
             $AfficherUser = new UserController();
             $AfficherUser -> AfficherUser();
             break;
-        case 'facebook':
-            if (!isset($segments[1])) {
-                $AfficherFacebook = new FacebookController();
-                $AfficherFacebook -> AfficherFacebook();
-                break;
-            } else if ($segments[1] == 'create') {
-                $AfficherCampagn = new FacebookController();
-                $AfficherCampagn -> create();
-                break;
-            }
+
         case '':
             header('Location: acceuil');
             exit();
