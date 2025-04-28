@@ -52,7 +52,7 @@ class UserRepository
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($password, $user['password_login'])) {
             session_start();
             $_SESSION['user_id'] = $user['id'];
             die("Connexion réussie !");
