@@ -56,6 +56,7 @@ class UserRepository
             session_start();
             $_SESSION['user_id'] = $user['id'];
             echo("Connexion réussie !");
+            header('Location: /acceuil');
         } else {
             die("Mauvais identifiants !");
             $message = 'Mauvais identifiants';
