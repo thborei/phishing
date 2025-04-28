@@ -117,10 +117,10 @@ if (!empty($segments)) {
                 $AfficherCampagn -> create();
                 break;
             }
-        // case '':
-        //     header('Location: acceuil');
-        //     exit();
-        //     break;
+        case '':
+            header('Location: acceuil');
+            exit();
+            break;
         default:
             http_response_code(404); // Retourne un code HTTP 404 Not Found.
             echo "Erreur 404 : Page non trouvée.";
