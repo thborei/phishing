@@ -22,9 +22,9 @@ class AcceuilController
     {
         $users = $this->repository->getLastDataPhished();
         $mdp = 'password';
-        $mpd = password_hash($mdp, PASSWORD_BCRYPT);
+        echo password_hash($mdp, PASSWORD_BCRYPT);
 
-        $contenu = $this->moteur->render('acceuilView', ['users' => $users], ['mdp' => $mpd]);
+        $contenu = $this->moteur->render('acceuilView', ['users' => $users]);
         
         
         echo $this->moteur->render('indexView', [
