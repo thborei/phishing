@@ -17,7 +17,6 @@
                     <td data-label="ID"><?= htmlspecialchars($campaign->getId()) ?></td>
                     <td data-label="Nom"><?= htmlspecialchars($campaign->getType()) ?></td>
                     <td data-label="URL"><?= htmlspecialchars($campaign -> getUrl()) ?>
-                    <button id="openPopupBtn">Afficher l'image</button>
                         <img src="<?= $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId()) ?>" alt="QR Code" class="popup-image">
                     </td>
                     <td data-label="Actions">
