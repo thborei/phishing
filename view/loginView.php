@@ -1,6 +1,7 @@
 <head>  
     <link rel="stylesheet" href="/login.css">
 </head>
+<body>
 <div class="screen-1">
   <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300" viewbox="0 0 640 480" xml:space="preserve">
     <g transform="matrix(3.31 0 0 3.31 320.4 240.4)">
@@ -40,3 +41,4 @@
   <button class="login">Login</button>
   <div class="footer"><span>Sign up</span><span>Forgot Password?</span></div>
 </div>
+</body>
