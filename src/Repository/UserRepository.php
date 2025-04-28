@@ -55,10 +55,9 @@ class UserRepository
         if ($user && password_verify($password, $user['password_login'])) {
             session_start();
             $_SESSION['user_id'] = $user['id'];
-            die("Connexion réussie !");
+            echo("Connexion réussie !");
             header('Location: acceuil');
         } else {
-            var_dump($user);
             die("Mauvais identifiants !");
             $message = 'Mauvais identifiants';
         }
