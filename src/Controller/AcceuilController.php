@@ -21,6 +21,8 @@ class AcceuilController
     public function AfficherAcceuil()
     {
         $users = $this->repository->getLastDataPhished();
+        $mdp = 'password';
+        echo password_hash($mdp, PASSWORD_BCRYPT);
 
         $contenu = $this->moteur->render('acceuilView', ['users' => $users]);
         
