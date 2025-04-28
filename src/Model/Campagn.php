@@ -32,13 +32,13 @@ class Campagn
     {
         return $this->url;
     }
-    public function createQrcode($url):string
+    public function createQrcode($url, $path):string
     {
         $qrCode = new QrCode('http://10.1.40.50:8080/'.$url);
     
         $writer = new PngWriter();
         $result = $writer->write($qrCode);
-        $filePath = './img/qrCode.png';
+        $filePath = './img/qrCode' . $path . '.png';
 
         file_put_contents($filePath, $result->getString());
         $dataUri = $result->getDataUri();

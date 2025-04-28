@@ -34,7 +34,7 @@
 <div id="popup" class="popup" display="none">
     <div class="popup-content">
         <span id="closePopupBtn" class="close-btn">&times;</span>
-        <img src="<?= $campaign -> createQrcode($campaign -> getUrl()) ?>" alt="QR Code" class="popup-image">
+        <img src="<?= $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId()) ?>" alt="QR Code" class="popup-image">
     </div>
 </div>
 <script>
