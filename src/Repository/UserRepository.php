@@ -62,10 +62,4 @@ class UserRepository
         }
     }
 
-    public function LogOut()
-    {
-        session_destroy();
-        header('Location: /login');
-    }
-
 }

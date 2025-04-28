@@ -128,6 +128,10 @@ if (!empty($segments)) {
                 $AfficherUser -> login();
                 break;
             }
+        case 'logout':
+            $AfficherUser = new LoginController();
+            $AfficherUser -> logout();
+            break;
         case '':
             header('Location: acceuil');
             exit();
