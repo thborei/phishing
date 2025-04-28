@@ -344,4 +344,9 @@ th, td {
     height: auto;
 }
 
+.déconnexion {
+    background-color: #031c3d;
+    margin-right: 10px;
+}
+
 }

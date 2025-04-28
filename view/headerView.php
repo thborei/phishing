@@ -5,5 +5,6 @@
             <li><a href="/acceuil">Accueil</a></li>
             <li><a href="/campaigns">Campagnes</a></li>
         </ul>
+        <button class="déconnexion">Déconnexion</button>
     </nav>
 </header>
