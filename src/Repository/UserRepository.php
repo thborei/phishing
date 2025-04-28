@@ -45,4 +45,20 @@ class UserRepository
             $row['password_user'],
         );
     }
+    public function LogIn(string $mail, string $password)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM USERS WHERE mail_user = :mail AND password_user = :password");
+        $stmt->execute([':mail' => $mail, ':password' => $password]);
+
+        $user = $stmt->fetch();
+        
+        if ($user && password_verify($password, $user['password'])) {
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            header('Location: acceuil');
+        } else {
+            $message = 'Mauvais identifiants';
+        }
+    }
+
 }
