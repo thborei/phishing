@@ -47,7 +47,7 @@ class UserRepository
     }
     public function LogIn(string $mail, string $password)
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM USERS WHERE mail_user = :mail AND password_user = :password");
+        $stmt = $this->pdo->prepare("SELECT * FROM Login WHERE mail_user = :mail AND password_user = :password LIMIT 1");
         $stmt->execute([':mail' => $mail, ':password' => $password]);
 
         $user = $stmt->fetch();
@@ -55,6 +55,7 @@ class UserRepository
         if ($user && password_verify($password, $user['password'])) {
             session_start();
             $_SESSION['user_id'] = $user['id'];
+            die("Connexion réussie !");
             header('Location: acceuil');
         } else {
             $message = 'Mauvais identifiants';
