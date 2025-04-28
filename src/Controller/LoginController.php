@@ -34,6 +34,7 @@ class LoginController
             }
 
             $this->repository->logIn($username, $password);
+            header('Location: acceuil'); // Redirection après l'enregistrement
             exit;
         } else {
             $contenu = $this->moteur->render('loginView');
