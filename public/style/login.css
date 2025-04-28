@@ -27,6 +27,7 @@
   .screen-1 .logo {
     margin-top: -3em;
     width: 50%;
+    margin: auto;
   }
   .screen-1 .email {
     background: white;
