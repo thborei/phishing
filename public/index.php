@@ -33,7 +33,7 @@ $url = trim($url, '/');
 
 // Divise l'URL en segments basés sur chaque barre oblique, stockant les résultats dans un tableau.
 $segments = explode('/', $url);
-
+$publicRoutes = ['login', 'logout']; // Pages qui ne nécessitent PAS d'être connecté
 // Affiche le tableau de segments pour déboguer (à supprimer ou commenter en prod, biensûr).
 // var_dump($segments);
 
@@ -52,11 +52,15 @@ $segments = explode('/', $url);
 
 // On peut maintenant utiliser les segments pour déterminer quelle page afficher.
 
+if (!in_array($segments[0], $publicRoutes) && empty($_SESSION['user_id'])) {
+    // L'utilisateur n'est PAS connecté et veut accéder à une page privée
+    $AfficherUser = new LoginController();
+    $AfficherUser->AfficherLogin();
+    exit();
+}
+
 // Vérifie si le tableau de segments n'est pas vide pour éviter d'exécuter le switch sur un tableau vide.
 if (!empty($segments)) {
-    if (!isset($_SESSION))
-        $AfficherUser = new LoginController();
-        $AfficherUser -> AfficherLogin();
     switch ($segments[0]) {
         case 'acceuil':
                 $AfficherAcceuil = new AcceuilController();
