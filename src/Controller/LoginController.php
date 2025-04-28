@@ -45,8 +45,8 @@ class LoginController
             ]);
         }
     }
-    
-    public function LogOut()
+
+    public function Logout()
     {
         session_destroy();
         header('Location: /login');
