@@ -54,6 +54,9 @@ $segments = explode('/', $url);
 
 // Vérifie si le tableau de segments n'est pas vide pour éviter d'exécuter le switch sur un tableau vide.
 if (!empty($segments)) {
+    if (!isset($_SESSION))
+        $AfficherUser = new LoginController();
+        $AfficherUser -> AfficherLogin();
     switch ($segments[0]) {
         case 'acceuil':
                 $AfficherAcceuil = new AcceuilController();
