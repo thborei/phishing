@@ -23,6 +23,7 @@ class LoginController
     }
 
     public function login(){
+        var_dump($_SESSION);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['email'];
             $password = $_POST['password'];
@@ -34,7 +35,7 @@ class LoginController
             }
 
             $this->repository->logIn($username, $password);
-            header('Location: acceuil'); // Redirection après l'enregistrement
+            header('Location: /acceuil'); // Redirection après l'enregistrement
             exit;
         } else {
             $contenu = $this->moteur->render('loginView');
