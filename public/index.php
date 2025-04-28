@@ -13,6 +13,7 @@ use App\Controller\DataController;
 use App\Controller\ListController;
 use App\Controller\UserController;
 use App\Controller\FacebookController;
+use App\Controller\LoginController;
 
 // L'index.php nous servira de routeur : c'est le point d'entrée de notre application :
 // Il va traiter les requêtes HTTP et appeler les bons contrôleurs en fonction de l'URL demandée.
@@ -117,7 +118,10 @@ if (!empty($segments)) {
             $AfficherUser = new UserController();
             $AfficherUser -> AfficherUser();
             break;
-
+        case 'login':
+            $AfficherUser = new LoginController();
+            $AfficherUser -> AfficherLogin();
+            break;
         case '':
             header('Location: acceuil');
             exit();
