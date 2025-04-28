@@ -21,6 +21,12 @@
                         <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>"> Modifier</a><br>
                         <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a><br>
                         <button id="openPopupBtn">Afficher l'image</button>
+                        <div id="popup" class="popup" display="none">
+                            <div class="popup-content">
+                                <span id="closePopupBtn" class="close-btn">&times;</span>
+                                <img src="<?= $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId()) ?>" alt="QR Code" class="popup-image">
+                            </div>
+                        </div>
                         <?php if ($campaign->getType() === 'custom'): ?>
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>">Formulaire</a>
                         <?php endif; ?>
@@ -31,12 +37,6 @@
     </table>
 </div>
 
-<div id="popup" class="popup" display="none">
-    <div class="popup-content">
-        <span id="closePopupBtn" class="close-btn">&times;</span>
-        <img src="<?= $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId()) ?>" alt="QR Code" class="popup-image">
-    </div>
-</div>
 <script>
 const openPopupBtn = document.getElementById("openPopupBtn");
 const popup = document.getElementById("popup");
