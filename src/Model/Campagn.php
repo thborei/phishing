@@ -36,6 +36,7 @@ class Campagn
     {
         var_dump($url);
         var_dump($path);
+        die();
         $qrCode = new QrCode('http://10.1.40.50:8080/'.$url);
     
         $writer = new PngWriter();
