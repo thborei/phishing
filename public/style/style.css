@@ -344,9 +344,23 @@ th, td {
     height: auto;
 }
 
+
+}
 .deconnexion {
     position: absolute;
-    right: 20px; 
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ff4757;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
+.deconnexion:hover {
+    background-color: #e84118;
 }
