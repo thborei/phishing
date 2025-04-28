@@ -31,6 +31,7 @@
   <button type="submit" class="login">Login</button>
   <div class="footer"><span>Sign up</span><span>Forgot Password?</span></div>
 </div>
+<?= var_dump($_SESSION) ?>
 </form>
 
 <!-- SCRIPT -->

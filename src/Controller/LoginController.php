@@ -23,7 +23,6 @@ class LoginController
     }
 
     public function login(){
-        var_dump($_SESSION);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['email'];
             $password = $_POST['password'];
