@@ -58,6 +58,7 @@ class UserRepository
             die("Connexion réussie !");
             header('Location: acceuil');
         } else {
+            var_dump($user);
             die("Mauvais identifiants !");
             $message = 'Mauvais identifiants';
         }
