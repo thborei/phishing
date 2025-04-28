@@ -119,9 +119,15 @@ if (!empty($segments)) {
             $AfficherUser -> AfficherUser();
             break;
         case 'login':
-            $AfficherUser = new LoginController();
-            $AfficherUser -> AfficherLogin();
-            break;
+            if (!isset($segments[1])) {
+                $AfficherUser = new LoginController();
+                $AfficherUser -> AfficherLogin();
+                break;
+            } else if ($segments[1] == 'log') {
+                $AfficherUser = new LoginController();
+                $AfficherUser -> login();
+                break;
+            }
         case '':
             header('Location: acceuil');
             exit();
