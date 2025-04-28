@@ -50,6 +50,5 @@ class LoginController
     {
         session_destroy();
         header('Location: /login');
-        echo "déconnexion réussie !";
     }
 }
