@@ -20,7 +20,7 @@
                         <img src="<?= $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId()) ?>" alt="QR Code" class="popup-image">
                     </td>
                     <td data-label="Actions">
-                        <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>"> Modifier</a><br>
+                        <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>" class="col-sm-2 col-form-label"> Modifier</a><br>
                         <a href="/campaigns/results/<?= $campaign -> getId() ?>">Résultat</a><br>
                         <?php if ($campaign->getType() === 'custom'): ?>
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>">Formulaire </a>
