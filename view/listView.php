@@ -16,7 +16,6 @@
         </thead>
         <tbody>
             <?php foreach ($data as $dat): ?>
-                <?php var_dump($dat); ?>
                 <tr>
                     <td data-label="Nom renseigné"><?= htmlspecialchars($dat->getJsonName()) ?></td>
                     <td data-label="Mot de passe renseigné"><?= htmlspecialchars($dat->getJsonPassword()) ?></td>

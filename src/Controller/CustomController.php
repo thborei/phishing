@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\MoteurDeRendu;
 use App\Repository\DataRepository;
 
-class FacebookController
+class CustomController
 {
     private MoteurDeRendu $moteur;
     private DataRepository $repository;
@@ -15,9 +15,12 @@ class FacebookController
         $this->moteur = new MoteurDeRendu();
         $this->repository = new DataRepository();
     }
-    public function AfficherFacebook()
+    public function AfficherCustom()
     {
-        echo $this->moteur->render('facebook');
+        echo $this->moteur->render('custom', [
+            'header' => $this->moteur->render('headerView'),
+            'footer' => $this->moteur->render('footerView')
+        ]);
     }
 
     public function create() {
