@@ -364,3 +364,18 @@ th, td {
 .deconnexion:hover {
     background-color: #e84118;
 }
+
+.bouton-campagne {
+    background-color: #031c3d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+.bouton-campagne:hover {
+    background-color: #ff4757;
+    color: #fff;
+}
