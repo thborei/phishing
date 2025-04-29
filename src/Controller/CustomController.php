@@ -17,10 +17,7 @@ class CustomController
     }
     public function AfficherCustom()
     {
-        echo $this->moteur->render('custom', [
-            'header' => $this->moteur->render('headerView'),
-            'footer' => $this->moteur->render('footerView')
-        ]);
+        echo $this->moteur->render('custom');
     }
 
     public function create() {
