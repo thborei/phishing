@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\Field;
 use App\Repository\CampagnRepository;
 use App\Repository\FieldRepository;
+use App\Repository\DataRepository;
 use App\MoteurDeRendu;
 
 
@@ -13,12 +14,14 @@ class CampagnController
     private MoteurDeRendu $moteur;
     private CampagnRepository $repository;
     private FieldRepository $fieldRepository;
+    private DataRepository $dataRepository;
     
     public function __construct()
     {
         $this->repository = new CampagnRepository();
         $this->moteur = new MoteurDeRendu();
         $this->fieldRepository = new FieldRepository();
+        $this->dataRepository = new DataRepository();
     }
 
     public function AfficherCampagn()
@@ -90,8 +93,17 @@ class CampagnController
         }
     }
 
-    public function result($id) {
-        // afficher les résultats de la campagne
+    public function results($id) {
+        $Data = $this->dataRepository->getDataByCampagn($id);
+
+        $contenu = $this->moteur->render('dataView', ['Data' => $Data,'id' => $id]);
+        
+        
+        echo $this->moteur->render('indexView', [
+            'contenu' => $contenu,
+            'header' => $this->moteur->render('headerView'),
+            'footer' => $this->moteur->render('footerView')
+        ]);
     }
 
     public function formulaire($id) {
