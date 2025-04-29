@@ -53,7 +53,7 @@ class Data
     public function getJsonPassword(): string|null
     {
         $json = $this->getJson();
-        return $json['Password'] ?? "Pas de mot de passe renseigné";
+        return "Mot de passe renseigné" ?? "Pas de mot de passe renseigné";
     }
 
     public function getDate(): string

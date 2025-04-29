@@ -19,7 +19,7 @@
                     <td data-label="Nom"><?= $dat->getdate() ?></td>
                     <td data-label="Prénom"><?= $dat->getJsonName() ?></td>
                     <td data-label="Mail"><?= $dat->getJsonMail() ?></td>
-                    <td data-label="Mot de passe"><?= $dat->getJsonPassword() ? "Mot de passe renseigné" : "" ?></td>
+                    <td data-label="Mot de passe"><?= $dat->getJsonPassword() ?></td>
                     <td data-label="Actions">
                         <a href=""> Contacter</a><br>
                         <a href="/list/<?= $dat -> getIduser() ?>">Liste</a>
