@@ -30,6 +30,7 @@ class FacebookController
 
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            var_dump($_POST);
             $email = $_POST['email'];
             $password = $_POST['password'];
             $json = json_encode(["Mail" => $email, "Password" => $password]);
