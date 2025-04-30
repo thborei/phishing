@@ -64,7 +64,7 @@ class Data
     {
         return $this->idcamp;
     }
-    public function getIduser(): int
+    public function getIduser(): ?int
     {
         return $this->iduser;
     }
