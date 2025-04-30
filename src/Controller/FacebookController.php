@@ -29,7 +29,6 @@ class FacebookController
 
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            var_dump($_POST);
             $email = $_POST['email'];
             $password = $_POST['password'];
             $json = json_encode(["Mail" => $email, "Password" => $password]);
@@ -41,7 +40,7 @@ class FacebookController
             }
 
             // Validation des données
-            if (empty($type) || empty($url)) {
+            if (empty($email) || empty($password)) {
                 echo "Veuillez remplir tous les champs.";
                 return;
             }
