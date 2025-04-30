@@ -23,9 +23,8 @@ class FacebookController
     public function AfficherFacebookCamp($id)
     {
         $id_camp = $id;
-        $contenu = ['id_camp' => $id_camp];
         echo $this->moteur->render('facebook', [
-            'contenu' => $contenu]);
+            'id_camp' => $id_camp]);
     }
 
     public function create() {
