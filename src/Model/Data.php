@@ -4,18 +4,18 @@ namespace App\Model;
 
 class Data
 {
-    private $id;
-    private $json;
-    private $date;
-    private $idcamp;
-    private $iduser;
+    private int $id;
+    private string $json;
+    private string $date;
+    private int $idcamp;
+    private ?int $iduser;
 
     public function __construct(
         int $id,
         string $json,
         string $date,
         int $idcamp,
-        int $iduser
+        ?int $iduser
 
     ) {
         $this->id = $id;
