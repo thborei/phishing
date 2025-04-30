@@ -111,11 +111,15 @@ if (!empty($segments)) {
                 $AfficherFacebook = new FacebookController();
                 $AfficherFacebook -> AfficherFacebook();
                 break;
-            } else if ($segments[1] == 'create') {
+            } else if (isset($segments[1]) && is_numeric($segments[1])) {
+                $AfficherCampagn = new FacebookController();
+                $AfficherCampagn -> AfficherFacebookCamp($segments[1]);
+                break;
+            }else if ($segments[1] == 'create') {
                 $AfficherCampagn = new FacebookController();
                 $AfficherCampagn -> create();
                 break;
-            }            
+            }
         case 'list':
             $AfficherListe = new ListController();
             $AfficherListe -> AfficherListe($segments[1]);

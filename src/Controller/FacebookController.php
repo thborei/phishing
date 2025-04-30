@@ -20,10 +20,25 @@ class FacebookController
         echo $this->moteur->render('facebook');
     }
 
+    public function AfficherFacebookCamp($id)
+    {
+        $id_camp = $id;
+        $contenu = $this->moteur->render(['id_camp' => $id_camp]);
+        echo $this->moteur->render('facebook', [
+            'contenu' => $contenu]);
+    }
+
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $json = $_POST['json'];
-            $url = $_POST['url'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $json = json_encode(["Mail" => $email, "Password" => $password]);
+            $id_camp = $_POST['id_camp'];
+            if (isset($_POST['id_user'])) {
+                $id_user = $_POST['id_user'];
+            } else {
+                $id_user = null; // ou une valeur par défaut
+            }
 
             // Validation des données
             if (empty($type) || empty($url)) {
