@@ -116,3 +116,9 @@
   button {
     cursor: pointer;
   }
+  
+  .screen-1 .email .sec-2 input,
+  .screen-1 .password .sec-2 input {
+  width: 100%;
+  font-size: 1em;
+  }
