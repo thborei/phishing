@@ -9,6 +9,7 @@
                 <th>Nom de la campagne</th>
                 <th>Lien de la Campagne</th>
                 <th>Action</th>
+                <th>hex</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
                     <td data-label="ID"><?= htmlspecialchars($campaign->getId()) ?></td>
                     <td data-label="Nom"><?= htmlspecialchars($campaign->getType()) ?></td>
                     <td data-label="URL"><?= htmlspecialchars($campaign -> getUrl()) ?>
+                     <?= htmlspecialchars($campaign->getUrl() . ($campaign->getType() === 'pre-defined' ? $campaign->getId() : '')) ?>
                         <img src="<?= $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId()) ?>" alt="QR Code" class="popup-image">
                     </td>
                     <td data-label="Actions">
@@ -26,6 +28,7 @@
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>" class="bouton-campagne">Formulaire </a>
                         <?php endif; ?>
                     </td>
+                    <td><?= $campaign->getHex() ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
