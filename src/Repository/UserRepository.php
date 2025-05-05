@@ -54,7 +54,6 @@ class UserRepository
         
         if ($user && password_verify($password, $user['password_login'])) {
             $_SESSION['user_id'] = $user['id'];
-            header('Location: /acceuil');
         } else {
             die("Mauvais identifiants !");
             $message = 'Mauvais identifiants';

@@ -29,8 +29,6 @@
   <div id="error" style="color:red; text-align:center; display:none; margin:10px 0;"></div>
 
   <button type="submit" class="login">Login</button>
-  <div class="footer"><span>Sign up</span><span>Forgot Password?</span></div>
-  <?= var_dump($_SESSION); ?>
 </div>
 </form>
 
