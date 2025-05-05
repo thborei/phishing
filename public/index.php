@@ -33,7 +33,7 @@ $url = trim($url, '/');
 
 // Divise l'URL en segments basés sur chaque barre oblique, stockant les résultats dans un tableau.
 $segments = explode('/', $url);
-$publicRoutes = ['login', 'logout']; // Pages qui ne nécessitent PAS d'être connecté
+$publicRoutes = ['login', 'logout', 'facebook']; // Pages qui ne nécessitent PAS d'être connecté
 // Affiche le tableau de segments pour déboguer (à supprimer ou commenter en prod, biensûr).
 // var_dump($segments);
 
