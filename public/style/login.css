@@ -133,3 +133,7 @@
     outline: none;
     background: transparent;
   }
+  .screen-1 .sec-2 .show-hide {
+    margin-left: auto; /* pousse à droite */
+    cursor: pointer;
+  }
