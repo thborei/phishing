@@ -46,12 +46,11 @@ class Campagn
 
         $bin = file_get_contents($filePath);
         $hexArray = str_split(bin2hex($bin),2);
-        $hex = " ";
+        $hex = "";
         foreach($hexArray as $byte){
             $hex .= "0x$byte, ";
         }
         $this->hex = $hex;
-        echo $this->hex;
         return $dataUri;
     }
     public function getHex():string|null

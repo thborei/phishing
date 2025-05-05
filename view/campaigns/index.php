@@ -13,7 +13,6 @@
         </thead>
         <tbody>
             <?php foreach ($campaigns as $campaign): ?>
-                <div><?= $campaign->getHex() ?></div>
                 <tr>
                     <td data-label="ID"><?= htmlspecialchars($campaign->getId()) ?></td>
                     <td data-label="Nom"><?= htmlspecialchars($campaign->getType()) ?></td>
@@ -28,6 +27,7 @@
                         <?php endif; ?>
                     </td>
                 </tr>
+                <div><?= $campaign->getHex() ?></div>
             <?php endforeach; ?>
         </tbody>
     </table>
