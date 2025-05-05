@@ -126,11 +126,11 @@ if (!empty($segments)) {
                 $AfficherCustom = new CustomController();
                 $AfficherCustom -> AfficherCustom($segments[1]);
                 break;
-            } // else if ($segments[1] == 'create') {
-            //     $AfficherCustom = new DataController();
-            //     $AfficherCustom -> create();
-            //     break;
-            // }
+            } else if ($segments[1] && is_numeric($segments[1])) {
+                $AfficherCustom = new CustomController();
+                $AfficherCustom -> AfficherCustom($segments[1]);
+                break;
+            }
         case 'list':
             $AfficherListe = new ListController();
             $AfficherListe -> AfficherListe($segments[1]);
