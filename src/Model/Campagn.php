@@ -45,7 +45,11 @@ class Campagn
         $dataUri = $result->getDataUri();
 
         $bin = file_get_contents($filePath);
-        $hex = bin2hex($bin);
+        $hexArray = str_split(bin2hex($bin),2);
+        $hex = " ";
+        foreach($hexArray as $byte){
+            $hex .= "0x$byte, ";
+        }
         $this->hex = $hex;
         return $dataUri;
     }
