@@ -139,7 +139,6 @@ if (!empty($segments)) {
             } else if ($segments[1] == 'log') {
                 $AfficherUser = new LoginController();
                 $AfficherUser -> login();
-                header('Location: /acceuil');
                 break;
             }
         case 'logout':
