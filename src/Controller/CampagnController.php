@@ -96,7 +96,7 @@ class CampagnController
     public function results($id) {
         $Data = $this->dataRepository->getDataByCampagn($id);
 
-        $contenu = $this->moteur->render('dataView', ['Data' => $Data,'id' => $id]);
+        $contenu = $this->moteur->render('dataFacebook', ['Data' => $Data,'id' => $id]);
         
         
         echo $this->moteur->render('indexView', [
