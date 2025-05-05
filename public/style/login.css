@@ -44,6 +44,7 @@
   .screen-1 .email input {
     outline: none;
     border: none;
+    width: 100%;
   }
   .screen-1 .email input::-moz-placeholder {
     color: black;
@@ -74,6 +75,7 @@
   .screen-1 .password input {
     outline: none;
     border: none;
+    width: 100%;
   }
   .screen-1 .password input::-moz-placeholder {
     color: black;
@@ -117,8 +119,3 @@
     cursor: pointer;
   }
   
-  .screen-1 .email .sec-2 input,
-  .screen-1 .password .sec-2 input {
-  width: 100%;
-  font-size: 1em;
-  }

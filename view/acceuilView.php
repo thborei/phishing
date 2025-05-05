@@ -1,5 +1,4 @@
 <h2>Liste des 10 derniers employés hameçonnés</h2>
-<?= var_dump($_SESSION); ?>
 <div class="table-responsive">
     <table>
         <thead>
