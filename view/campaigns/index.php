@@ -9,7 +9,6 @@
                 <th>Nom de la campagne</th>
                 <th>Lien de la Campagne</th>
                 <th>Action</th>
-                <th>Hexadécimal</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +26,6 @@
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>" class="bouton-campagne">Formulaire </a>
                         <?php endif; ?>
                     </td>
-                    <td><?= $campaign->getHex() ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
