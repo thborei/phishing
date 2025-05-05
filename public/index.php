@@ -16,6 +16,7 @@ use App\Controller\ListController;
 use App\Controller\UserController;
 use App\Controller\FacebookController;
 use App\Controller\LoginController;
+use App\Controller\CustomController;
 
 // L'index.php nous servira de routeur : c'est le point d'entrée de notre application :
 // Il va traiter les requêtes HTTP et appeler les bons contrôleurs en fonction de l'URL demandée.
@@ -120,6 +121,16 @@ if (!empty($segments)) {
                 $AfficherCampagn -> create();
                 break;
             }
+        case 'custom':
+            if (!isset($segments[1])) {
+                $AfficherCustom = new CustomController();
+                $AfficherCustom -> AfficherCustom($segments[1]);
+                break;
+            } // else if ($segments[1] == 'create') {
+            //     $AfficherCustom = new DataController();
+            //     $AfficherCustom -> create();
+            //     break;
+            // }
         case 'list':
             $AfficherListe = new ListController();
             $AfficherListe -> AfficherListe($segments[1]);
