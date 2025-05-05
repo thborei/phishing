@@ -41,7 +41,7 @@ class CampagnController
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $type = $_POST['type'];
-            $url = $_POST['url'];
+            $url = "/" . $_POST['url'];
             $predifine = $_POST['predefinedOptions'] ?? null; // Récupération de l'option prédéfinie si elle est sélectionnée
 
             // Validation des données
