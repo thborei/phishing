@@ -51,6 +51,7 @@ class Campagn
             $hex .= "0x$byte, ";
         }
         $this->hex = $hex;
+        echo $this->hex;
         return $dataUri;
     }
     public function getHex():string|null
