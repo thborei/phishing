@@ -9,6 +9,7 @@ class Campagn
     private $id;
     private $type;
     private $url;
+    private $hex;
 
     public function __construct(
         int $id,
@@ -43,7 +44,14 @@ class Campagn
         file_put_contents($filePath, $result->getString());
         $dataUri = $result->getDataUri();
 
+        $bin = file_get_contents($filePath);
+        $hex = bin2hex($bin);
+        $this->hex = $hex;
         return $dataUri;
+    }
+    public function getHex():string|null
+    {
+        return $this->hex;
     }
 
 }

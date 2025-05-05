@@ -14,8 +14,7 @@
     <?php foreach ($fields as $field): ?>
       <input type="<?= $field->getType()?>" placeholder="<?= htmlspecialchars($field->getName()) ?>" />
     <?php endforeach; ?>
-    <button>ログイン</button>
-    <a href="#">ストアフロントに戻る</a>
+    <button>Connexion</button>
   </div>
 </div>
 </body>

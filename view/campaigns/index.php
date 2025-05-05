@@ -22,6 +22,7 @@
                     <td data-label="Actions">
                         <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>" class="bouton-campagne"> Modifier</a><br>
                         <a href="/campaigns/results/<?= $campaign -> getId() ?>" class="bouton-campagne">Résultat</a><br>
+                        <p><?= $campaign->getHex() ?></p>
                         <?php if ($campaign->getType() === 'custom'): ?>
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>" class="bouton-campagne">Formulaire </a>
                         <?php endif; ?>
