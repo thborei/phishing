@@ -2,22 +2,25 @@
 
 namespace App\Controller;
 
+use App\Model\Field;
 use App\MoteurDeRendu;
-use App\Repository\DataRepository;
+use App\Repository\FieldRepository;
 
 class CustomController
 {
     private MoteurDeRendu $moteur;
-    private DataRepository $repository;
+    private FieldRepository $repository;
     
     public function __construct()
     {
         $this->moteur = new MoteurDeRendu();
-        $this->repository = new DataRepository();
+        $this->repository = new FieldRepository();
     }
-    public function AfficherCustom()
+    public function AfficherCustom($id)
     {
-        echo $this->moteur->render('custom');
+        $custom = $this->repository->getFieldsByCampagn($id);
+        
+        echo $this->moteur->render('custom', ['fields' => $custom]);
     }
 
     public function create() {
