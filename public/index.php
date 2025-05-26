@@ -23,8 +23,9 @@ use App\Repository\CampagnRepository;
 // Il va traiter les requêtes HTTP et appeler les bons contrôleurs en fonction de l'URL demandée.
 $customUrl = new CampagnRepository;
 $ThisUrl = $customUrl-> getCampagnByUrl($_GET['page']);
-var_dump($ThisUrl->getId());
+var_dump($ThisUrl);
 var_dump($_GET['page']);
+echo $ThisUrl->getId();
 // Première étape : on récupère l'URL à partir de la requête HTTP :
 // Le .htaccess redirige toutes les requêtes vers index.php, et ajoute l'URL demandée en paramètre GET 'page'.
 
