@@ -24,12 +24,12 @@ use App\Repository\CampagnRepository;
 $customUrl = new CampagnRepository;
 $customUrl-> getCampagnByUrl($_GET['page']);
 var_dump($customUrl);
+var_dump($_GET['page']);
 // Première étape : on récupère l'URL à partir de la requête HTTP :
 // Le .htaccess redirige toutes les requêtes vers index.php, et ajoute l'URL demandée en paramètre GET 'page'.
 
 // Vérifie si l'URL est présente dans les paramètres GET; sinon, utilise '/' comme valeur par défaut.
 $url = $_GET['page'] ?? '/';
-var_dump($url);
 // Supprime les barres obliques en début et en fin de l'URL pour normaliser le chemin.
 $url = trim($url, '/');
 
