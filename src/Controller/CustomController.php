@@ -34,7 +34,7 @@ class CustomController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
            $fieldCamp = $this->repository->getFieldsByCampagn($_POST['id_camp']);
            foreach ($fieldCamp as $field) {
-                if ($field->getName() == "Email") {
+                if ($field->getType() == "email") {
                     if (isset($_POST['email'])) {
                         $user = $this->userRepository->getUserByEmail($_POST['email']);
                         $id_user =$user->getId();
@@ -44,10 +44,10 @@ class CustomController
                         $email = $_POST['email'];
                     }
                 }
-                if ($field->getName() == "password") {
+                if ($field->getType() == "password") {
                     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 }
-                if ($field->getName() == "name") {
+                if ($field->getType() == "text") {
                     $name = $_POST['name'];
                 }
 
