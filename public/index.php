@@ -18,6 +18,7 @@ use App\Controller\FacebookController;
 use App\Controller\LoginController;
 use App\Controller\CustomController;
 use App\Repository\CampagnRepository;
+use App\Controller\GoogleController;
 
 // L'index.php nous servira de routeur : c'est le point d'entrée de notre application :
 // Il va traiter les requêtes HTTP et appeler les bons contrôleurs en fonction de l'URL demandée.
@@ -142,6 +143,20 @@ if (!empty($segments)) {
             else if ($segments[1] == 'create') {
                 $AfficherCustom = new CustomController();
                 $AfficherCustom -> create();
+                break;
+            }
+        case 'google':
+            if (!isset($segments[1])) {
+                $AfficherGoogle = new GoogleController();
+                $AfficherGoogle -> AfficherGoogle();
+                break;
+            } else if ($segments[1] == 'create') {
+                $AfficherGoogle = new DataController();
+                $AfficherGoogle -> create();
+                break;
+            } else if (isset($segments[1]) && is_numeric($segments[1])) {
+                $AfficherGoogle = new DataController();
+                $AfficherGoogle -> AfficherGoogleCamp($segments[1]);
                 break;
             }
         case 'list':
