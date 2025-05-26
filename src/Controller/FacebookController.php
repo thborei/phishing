@@ -42,11 +42,6 @@ class FacebookController
             $password = $_POST['password'];
             $json = json_encode(["Mail" => $email, "Password" => $password]);
             $id_camp = $_POST['id_camp'];
-            // if (isset($_POST['id_user'])) {
-            //     $id_user = $_POST['id_user'];
-            // } else {
-            //     $id_user = null; // ou une valeur par défaut
-            // }
 
             // Validation des données
             if (empty($email) || empty($password)) {
