@@ -32,8 +32,6 @@ class CustomController
 
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            var_dump($_POST);
-            die;
            $fieldCamp = $this->repository->getFieldsByCampagn($_POST['id_camp']);
            foreach ($fieldCamp as $field) {
                 if ($field->getName() == "email") {
@@ -41,6 +39,7 @@ class CustomController
                         $user = $this->userRepository->getUserByEmail($_POST['email']);
                         $id_user =$user->getId();
                         $email = $_POST['email'];
+                        var_dump($email);
                     }else {
                         $id_user = null;
                         $email = $_POST['email'];
