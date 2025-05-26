@@ -150,13 +150,13 @@ if (!empty($segments)) {
                 $AfficherGoogle = new GoogleController();
                 $AfficherGoogle -> AfficherGoogle();
                 break;
-            } else if ($segments[1] == 'create') {
-                $AfficherGoogle = new DataController();
-                $AfficherGoogle -> create();
-                break;
             } else if (isset($segments[1]) && is_numeric($segments[1])) {
-                $AfficherGoogle = new DataController();
+                $AfficherGoogle = new GoogleController();
                 $AfficherGoogle -> AfficherGoogleCamp($segments[1]);
+                break;
+            } else if ($segments[1] == 'create') {
+                $AfficherGoogle = new GoogleController();
+                $AfficherGoogle -> create();
                 break;
             }
         case 'list':
