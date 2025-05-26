@@ -20,13 +20,13 @@ use App\Controller\CustomController;
 
 // L'index.php nous servira de routeur : c'est le point d'entrée de notre application :
 // Il va traiter les requêtes HTTP et appeler les bons contrôleurs en fonction de l'URL demandée.
-
+// $customUrl = 
 // Première étape : on récupère l'URL à partir de la requête HTTP :
 // Le .htaccess redirige toutes les requêtes vers index.php, et ajoute l'URL demandée en paramètre GET 'page'.
 
 // Vérifie si l'URL est présente dans les paramètres GET; sinon, utilise '/' comme valeur par défaut.
 $url = $_GET['page'] ?? '/';
-
+var_dump($url);
 // Supprime les barres obliques en début et en fin de l'URL pour normaliser le chemin.
 $url = trim($url, '/');
 
