@@ -228,7 +228,7 @@
                         compte n’est pas accessible ?</a></p>
             </div>
             <div class="button-container">
-                <button type="button" class="btn btn-primary" onclick="window.location.href = '/acceuil'" style="margin-right: 4px; width: 114px;">Retour</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href = &#39; &#39;" style="margin-right: 4px; width: 114px;">Retour</button>
                 <button type="submit" class="btn btn-primary btn-2" onclick="handleRedirect(event)" style="margin-right: 0px; width: 114px">Suivant</button>
             </div>
         </form>
@@ -253,13 +253,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-<!------.-. .-')         (`-.    _  .-')   
-        \  ( OO )      _(OO  )_ ( \( -O )  
-        ,--. ,--.  ,--(_/   ,. \ ,------.  
-        |  .'   /  \   \   /(__/ |   /`. ' 
-        |      /,   \   \ /   /  |  /  | | 
-        |     ' _)   \   '   /,  |  |_.' | 
-        |  .   \      \     /__) |  .  '.' 
-        |  |\   \      \   /     |  |\  \  
-        `--' '--'       `-'      `--' '--'------->  
