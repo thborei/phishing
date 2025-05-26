@@ -4,16 +4,19 @@ namespace App\Controller;
 
 use App\MoteurDeRendu;
 use App\Repository\DataRepository;
+use App\Repository\UserRepository;
 
 class FacebookController
 {
     private MoteurDeRendu $moteur;
     private DataRepository $repository;
+    private UserRepository $userRepository;
     
     public function __construct()
     {
         $this->moteur = new MoteurDeRendu();
         $this->repository = new DataRepository();
+        $this->userRepository = new UserRepository();
     }
     public function AfficherFacebook()
     {
@@ -29,15 +32,20 @@ class FacebookController
 
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['email'])) {
+                $id_user = $this->userRepository->getUserByEmail($_POST['email']);
+            } else {
+                $id_user = null;
+            }
             $email = $_POST['email'];
             $password = $_POST['password'];
             $json = json_encode(["Mail" => $email, "Password" => $password]);
             $id_camp = $_POST['id_camp'];
-            if (isset($_POST['id_user'])) {
-                $id_user = $_POST['id_user'];
-            } else {
-                $id_user = null; // ou une valeur par défaut
-            }
+            // if (isset($_POST['id_user'])) {
+            //     $id_user = $_POST['id_user'];
+            // } else {
+            //     $id_user = null; // ou une valeur par défaut
+            // }
 
             // Validation des données
             if (empty($email) || empty($password)) {

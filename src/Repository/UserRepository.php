@@ -67,4 +67,22 @@ class UserRepository
         header('Location: /login');
     }
 
+    public function getUserByEmail(string $email): ?User
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM USERS WHERE mail_user = :email LIMIT 1");
+        $stmt->execute([':email' => $email]);
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($row) {
+            return new User(
+                $row['id_user'],
+                $row['name_user'],
+                $row['firstname_user'],
+                $row['mail_user'],
+                $row['password_user']
+            );
+        }
+        return null;
+    }
+
 }

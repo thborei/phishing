@@ -131,6 +131,11 @@ if (!empty($segments)) {
                 $AfficherCustom -> AfficherCustom($segments[1]);
                 break;
             }
+            else if ($segments[1] == 'create') {
+                $AfficherCustom = new CustomController();
+                $AfficherCustom -> create();
+                break;
+            }
         case 'list':
             $AfficherListe = new ListController();
             $AfficherListe -> AfficherListe($segments[1]);

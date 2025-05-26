@@ -10,11 +10,13 @@
 <div class="container">
   <div class="login-box">
     <h1>Test</h1>
+    <form action="/custom/" method="post"></form>
     <p>Veuillez remplir tous les champs</p>
     <?php foreach ($fields as $field): ?>
       <input type="<?= $field->getType()?>" placeholder="<?= htmlspecialchars($field->getName()) ?>" />
     <?php endforeach; ?>
     <button>Connexion</button>
+
   </div>
 </div>
 </body>
