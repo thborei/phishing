@@ -38,11 +38,14 @@
 function toggleSecondSelect() {
     const typeSelect = document.getElementById("type");
     const secondSelect = document.getElementById("predefinedFields");
+    const secondSelectOptions = document.getElementById("predefinedOptions");
 
     if (typeSelect.value === "pre-defined") {
         secondSelect.style.display = "block";
+        secondSelectOptions.disabled = false;
     } else {
         secondSelect.style.display = "none";
+        secondSelectOptions.disabled = true;
     }
 }
 document.getElementById("type").addEventListener("change", toggleSecondSelect);
