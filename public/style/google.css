@@ -1,264 +1,176 @@
         @font-face {
-            font-family: 'Google Sans';
-            src: url('https://github.com/PassAndSecure/Template_Gophish/tree/main/Picture-Template/font-google/GoogleSans-Regular.woff2') format('woff2');
-            font-weight: 400;
+            font-family: 'Segoe UI Webfont';
+            font-weight: normal;
             font-style: normal;
-        }
-        @font-face {
-            font-family: 'Google Sans';
-            src: url('https://github.com/PassAndSecure/Template_Gophish/tree/main/Picture-Template/font-google/GoogleSans-Bold.woff2') format('woff2');
-            font-weight: 500;
-            font-style: normal;
-        }    
-        body {
-            background-color: #f0f4f9;
-            font-family: 'Google Sans', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .login-container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 28px;
-            width: 1140px;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px; 
-        }
-        .login-left, .login-right {
-            width: 50%;
-        }
-        .login-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            margin-top: -140px;
-        }
-        .login-header {
-            margin-bottom: 20px;
-        }
-        .login-header img {
-            height: 45px;
-            margin-bottom: 10px;
-        }
-        h2 {
-            font-size: 36px;
-            line-height: 44px;
-            color: #1f1f1f;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-        p {
-            font-size: 16px;
-            line-height: 24px;
-            color: #1f1f1f;
-            margin-bottom: 20px;
-        }
-        .form-group input {
-            width: 96%;
-            padding: 28px;
-            margin-bottom: 10px;
-            margin-left: 23px;
-            border: 1px solid grey;
-            border-radius: 4px;
-            font-size: 18px;
-            color: black;
-        }
-        .form-group input::placeholder {
-            width: 96%;
-            padding: 28px;
-            margin-bottom: 10px;
-            margin-left: 23px;
-            border: 1px solid grey;
-            border-radius: 4px;
-            font-size: 15px;
-        }
-        .form-group-3 input {
-            width: 96%;
-            padding: 28px;
-            margin-bottom: 10px;
-            margin-left: 23px;
-            border: 1px solid grey;
-            border-radius: 4px;
-            font-size: 15px;
-            color: black;
-        }
-        .form-group-3 input::placeholder {
-            width: 96%;
-            padding: 28px;
-            margin-bottom: 10px;
-            margin-left: 23px;
-            border: 1px solid grey;
-            border-radius: 4px;
-            font-size: 15px;
-        }
-        .form-group-2 input[type="checkbox"] {
-            transform: scale(1.2);
-            background-color: #fff;
-            border: 3px solid black;
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-            position: relative;
-            display: inline-block;
-            margin-left: 5px;
-            margin-right: 17px;
-            vertical-align: middle;
-        }
-        .form-group-2 input[type="checkbox"]:checked::before {
-            content: '\2713';
-            font-size: 17px;
-            position: absolute;
-            border: 3px solid black;
-            top: -9px;
-            left: -1px;
-        }
-        .btn-link {
-            font-size: 0.875rem;
-            color: #0b57d0;
-            font-weight: 500;
-            text-decoration: none;
-            position: relative;
-            margin-left: 23px;
-        }
-        
-        .btn-link:hover {
-            background-color: #F0F4F9;
-            color: #0b57d0;
-            margin-left: 21px;
-            padding:2px;
-            border-radius: 15px;
-            text-decoration: none;
-        }
-        
-        .btn-link:hover::before {
-            opacity: 0.1;
-        }
-        .info-text {
-            font-size: 14px;
-            line-height: 20px;
-            color: #444746;
-            margin: 10px 0;
-            margin-left: 23px;
-            margin-top: 45px;
-        }
-        .info-link {
-            font-size: 14px;
-            line-height: 20px;
-            color: #0b57d0;
-            font-weight: 500;
-            text-decoration: none;
-        }
-        
-        .info-link:hover {
-            background-color: #F0F4F9;
-            color: #0b57d0;
-            margin-left: -2px;
-            padding:2px;
-            border-radius: 15px;
-            text-decoration: none;
-        }
-        
-        .info-link-2 {
-            font-size: 14px;
-            line-height: 20px;
-            color: #0b57d0;
-            font-weight: 500;
-            text-decoration: none;
-            margin-left: 270px;
-        }
-        
-        .info-link-2:hover {
-            background-color: #F0F4F9;
-            color: #0b57d0;
-            padding: 10px 20px 10px 20px;
-            margin-left: 250px;
-            border-radius: 30px;
-            text-decoration: none;
-        }
-        .footer-links {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .btn-primary {
-            background-color: #0B57D0;
-            border-color: #0B57D0;
-            color: #fff;
-            font-size: 14px;
-            font-weight: 500;
-            width: 19%;
-            padding: 9px;
-            border-radius: 20px;
-        }
-        .bottom-links {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1095px;
-        }
-        .bottom-links-2 {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1095px;
-        }
-        .custom-text {
-            font-family: 'Google Sans', sans-serif;
-            font-size: 13px;
-            line-height: 20px;
-            color: #1f1f1f;
-        }
-        
-        .bottom-link:hover {
-            background-color:#EBEBEB;
-            color: black;
-            padding:8px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-left:-8px;
-        }
-        .bottom-link-2:hover {
-            background-color:#EBEBEB;
-            color: black;
-            padding:8px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-left:-8px;
         }
 
-        #emailButton {
-            display: none;
-            max-width: 80%;
-            padding: 3px;
-            margin-bottom: 10px;
-            border: 1px solid grey;
-            border-radius: 15px;
-            background-color: white;
-            text-align: left;
-            cursor: pointer;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+        body {
+            margin: 0;
+            background-image: url('https://github.com/PassAndSecure/Template_Gophish/blob/main/Picture-Template/mslogin.png?raw=true');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            font-family: 'Segoe UI Webfont', -apple-system, 'Helvetica Neue', 'Lucida Grande', 'Roboto', 'Ebrima',
+                'Nirmala UI', 'Gadugi', 'Segoe Xbox Symbol', 'Segoe UI Symbol', 'Meiryo UI', 'Khmer UI', 'Tunga',
+                'Lao UI', 'Raavi', 'Iskoola Pota', 'Latha', 'Leelawadee', 'Microsoft YaHei UI', 'Microsoft JhengHei UI',
+                'Malgun Gothic', 'Estrangelo Edessa', 'Microsoft Himalaya', 'Microsoft New Tai Lue', 'Microsoft
+                PhagsPa', 'Microsoft Tai Le', 'Microsoft Yi Baiti', 'Mongolian Baiti', 'MV Boli', 'Myanmar Text',
+                'Cambria Math';
+            flex-direction: column;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 440px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .login-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border: none;
+            border-bottom: 1px solid #1b1b1b;
+            border-radius: 0;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-bottom: 2px solid #0078d4;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .form-control.error {
+            border-bottom: 1px solid #e81123;
+        }
+
+        .error-message {
+            color: #d93025;
+            font-size: 0.875em;
+            margin-top: 0.25em;
+            display: none;
+        }
+
+        .btn-primary {
+            color: black;
+            background-color: #CCCCCC;
+            border-color: #CCCCCC;
+            border-radius: 0;
+            font-size: 1rem;
+            width: 120px;
             margin-right: 10px;
-            font-size: 16px;
+            padding: 3px;
         }
-        .arrow {
-            margin-right:15px;
+
+        .btn-primary:hover {
+            color: black;
+            background-color: #B2B2B2;
+            border-color: #B2B2B2;
         }
-        .arrow-2 {
-            margin-left:65px;
+
+        .btn-2 {
+            color: white;
+            background-color: #0067B8;
+            border-color: #0067B8;
+            border-radius: 0;
+            font-size: 1rem;
+            width: 120px;
         }
+
+        .btn-2:hover {
+            color: white;
+            background-color: #005DA6;
+            border-color: #005DA6;
+        }
+
+        .text-links a:hover {
+            text-decoration: underline;
+            color: #6C7378;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #0067B8;
+        }
+
+        .option-connexion {
+            color: black;
+        }
+
+        .div-option-connexion {
+            background: white;
+            padding: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 440px;
+            width: 100%;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .div-option-connexion:hover {
+            background: #CCCCCC;
+        }
+
+        .horizontal-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .horizontal-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .text-links {
+            text-align: left;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+        @media (max-width: 576px) {
+    .login-container {
+        padding: 10px;
+    }
+    .button-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+@media (max-width: 576px) {
+    .footer-links {
+        position: static;
+        text-align: center;
+        margin-top: 20px;
+    }
