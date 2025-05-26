@@ -17,10 +17,13 @@ use App\Controller\UserController;
 use App\Controller\FacebookController;
 use App\Controller\LoginController;
 use App\Controller\CustomController;
+use App\Repository\CampagnRepository;
 
 // L'index.php nous servira de routeur : c'est le point d'entrée de notre application :
 // Il va traiter les requêtes HTTP et appeler les bons contrôleurs en fonction de l'URL demandée.
-// $customUrl = 
+$customUrl = new CampagnRepository;
+$customUrl-> getCampagnByUrl($_GET['page']);
+var_dump($customUrl);
 // Première étape : on récupère l'URL à partir de la requête HTTP :
 // Le .htaccess redirige toutes les requêtes vers index.php, et ajoute l'URL demandée en paramètre GET 'page'.
 

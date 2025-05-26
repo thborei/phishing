@@ -99,4 +99,20 @@ class CampagnRepository
             $row['id_campagn'],
         )  ,$results);
     }
+    
+    public function getCampagnByUrl(string $url): ?Campagn
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM CAMPAGNS WHERE url_campagn = :url");
+        $stmt->execute([':url' => $url]);
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($row) {
+            return new Campagn(
+                $row['id_campagn'],
+                $row['type_campagn'],
+                $row['url_campagn'],
+            );
+        }
+        return null;
+    }
 }
