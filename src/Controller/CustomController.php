@@ -33,6 +33,8 @@ class CustomController
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
            $fieldCamp = $this->repository->getFieldsByCampagn($_POST['id_camp']);
+           var_dump($fieldCamp);
+            die;
            foreach ($fieldCamp as $field) {
                 if ($field->getName() == "email") {
                     if (isset($_POST['email'])) {
