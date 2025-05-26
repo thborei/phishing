@@ -24,9 +24,11 @@ use App\Repository\CampagnRepository;
 $customUrl = new CampagnRepository;
 $ThisUrl = $customUrl-> getCampagnByUrl($_GET['page']);
 if (isset($ThisUrl)){
-    $AfficherCustom = new CustomController();
-    $AfficherCustom -> AfficherCustom($segments[1]);
-};
+    if ($ThisUrl->getType() == 'custom') {
+        $AfficherCustom = new CustomController();
+        $AfficherCustom -> AfficherCustom($ThisUrl->getId());
+        exit();
+}};
 
 // Première étape : on récupère l'URL à partir de la requête HTTP :
 // Le .htaccess redirige toutes les requêtes vers index.php, et ajoute l'URL demandée en paramètre GET 'page'.
