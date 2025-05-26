@@ -33,7 +33,8 @@ class FacebookController
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['email'])) {
-                $id_user = $this->userRepository->getUserByEmail($_POST['email']);
+                $user = $this->userRepository->getUserByEmail($_POST['email']);
+                $id_user =$user->getId();
             } else {
                 $id_user = null;
             }
