@@ -36,7 +36,7 @@ class CustomController
            var_dump($fieldCamp);
             die;
            foreach ($fieldCamp as $field) {
-                if ($field->getName() == "email") {
+                if ($field->getName() == "Email") {
                     if (isset($_POST['email'])) {
                         $user = $this->userRepository->getUserByEmail($_POST['email']);
                         $id_user =$user->getId();
