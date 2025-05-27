@@ -31,11 +31,11 @@ if (isset($ThisUrl)){
         $AfficherCustom -> AfficherCustom($ThisUrl->getId());
         exit();
     } else if ($ThisUrl->getType() == 'pre-defined') {
-        if ($ThisUrl->getPredefined() == 'facebook') {
+        if ($ThisUrl->getPredefined() == 'Facebook') {
             $AfficherFacebook = new FacebookController();
             $AfficherFacebook -> AfficherFacebookCamp($ThisUrl->getId());
             exit();
-        } else if ($ThisUrl->getPredefined() == 'google') {
+        } else if ($ThisUrl->getPredefined() == 'Google') {
             $AfficherGoogle = new GoogleController();
             $AfficherGoogle -> AfficherGoogleCamp($ThisUrl->getId());
             exit();
