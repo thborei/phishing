@@ -39,7 +39,7 @@ class FacebookController
                 $id_user = null;
             }
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $json = json_encode(["Mail" => $email, "Password" => $password]);
             $id_camp = $_POST['id_camp'];
 

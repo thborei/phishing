@@ -45,7 +45,7 @@ class CustomController
                     }
                 }
                 if ($field->getType() == "password") {
-                    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
                 }
                 if ($field->getType() == "text") {
                     $name = $_POST['name'];
