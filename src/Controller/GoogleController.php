@@ -34,7 +34,11 @@ class GoogleController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['email'])) {
                 $user = $this->userRepository->getUserByEmail($_POST['email']);
-                $id_user =$user->getId();
+                if (isset($user)) {
+                    $id_user = $user->getId();
+                } else {
+                    $id_user = null;
+                }
             } else {
                 $id_user = null;
             }
