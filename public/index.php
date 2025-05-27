@@ -29,7 +29,16 @@ if (isset($ThisUrl)){
         $AfficherCustom = new CustomController();
         $AfficherCustom -> AfficherCustom($ThisUrl->getId());
         exit();
-}};
+    } else if ($ThisUrl->getType() == 'facebook') {
+        $AfficherFacebook = new FacebookController();
+        $AfficherFacebook -> AfficherFacebookCamp($ThisUrl->getId());
+        exit();
+    } else if ($ThisUrl->getType() == 'google') {
+        $AfficherGoogle = new GoogleController();
+        $AfficherGoogle -> AfficherGoogleCamp($ThisUrl->getId());
+        exit();
+    }
+}
 
 // Première étape : on récupère l'URL à partir de la requête HTTP :
 // Le .htaccess redirige toutes les requêtes vers index.php, et ajoute l'URL demandée en paramètre GET 'page'.
@@ -43,7 +52,7 @@ $url = trim($url, '/');
 
 // Divise l'URL en segments basés sur chaque barre oblique, stockant les résultats dans un tableau.
 $segments = explode('/', $url);
-$publicRoutes = ['login', 'logout', 'facebook', 'custom']; // Pages qui ne nécessitent PAS d'être connecté
+$publicRoutes = ['login', 'logout', 'facebook', 'custom','google']; // Pages qui ne nécessitent PAS d'être connecté
 // Affiche le tableau de segments pour déboguer (à supprimer ou commenter en prod, biensûr).
 // var_dump($segments);
 
