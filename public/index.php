@@ -126,19 +126,19 @@ if (!empty($segments)) {
                 break;
             };
         case 'facebook':
-            if ($segments[1] == 'create') {
+            if (isset($segments[1]) && $segments[1] == 'create') {
                 $AfficherCampagn = new FacebookController();
                 $AfficherCampagn -> create();
                 break;
             }
         case 'custom':
-            if ($segments[1] == 'create') {
+            if (isset($segments[1]) && $segments[1] == 'create') {
                 $AfficherCustom = new CustomController();
                 $AfficherCustom -> create();
                 break;
             }
         case 'google':
-            if ($segments[1] == 'create') {
+            if (isset($segments[1]) && $segments[1] == 'create') {
                 $AfficherGoogle = new GoogleController();
                 $AfficherGoogle -> create();
                 break;
