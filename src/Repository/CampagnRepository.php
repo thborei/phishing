@@ -38,6 +38,7 @@ class CampagnRepository
             $row['id_campagn'],
             $row['type_campagn'],
             $row['url_campagn'],
+            $row['predefine_campagn'] ?? null
         )  ,$results);
     }
 
@@ -52,6 +53,7 @@ class CampagnRepository
             $row['id_campagn'],
             $row['type_campagn'],
             $row['url_campagn'],
+            $row['predefine_campagn'] ?? null
         );
     }
 
@@ -111,6 +113,7 @@ class CampagnRepository
                 $row['id_campagn'],
                 $row['type_campagn'],
                 $row['url_campagn'],
+                $row['predefine_campagn'] ?? null
             );
         }
         return null;

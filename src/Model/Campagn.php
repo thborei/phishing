@@ -9,16 +9,19 @@ class Campagn
     private $id;
     private $type;
     private $url;
+    private $predefined;
     private $hex;
 
     public function __construct(
         int $id,
         string $type,
         string $url,
+        ?string $predefined,
     ){
         $this->id = $id;
         $this->type = $type;
         $this->url = $url;
+        $this->predefined = $predefined;
     }
     
     public function getId():int
@@ -56,6 +59,10 @@ class Campagn
     public function getHex():string|null
     {
         return $this->hex;
+    }
+    public function getPredefined():string|null
+    {
+        return $this->predefined;
     }
 
 }

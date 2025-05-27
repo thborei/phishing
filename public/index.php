@@ -29,14 +29,16 @@ if (isset($ThisUrl)){
         $AfficherCustom = new CustomController();
         $AfficherCustom -> AfficherCustom($ThisUrl->getId());
         exit();
-    } else if ($ThisUrl->getType() == 'facebook') {
-        $AfficherFacebook = new FacebookController();
-        $AfficherFacebook -> AfficherFacebookCamp($ThisUrl->getId());
-        exit();
-    } else if ($ThisUrl->getType() == 'google') {
-        $AfficherGoogle = new GoogleController();
-        $AfficherGoogle -> AfficherGoogleCamp($ThisUrl->getId());
-        exit();
+    } else if ($ThisUrl->getType() == 'pre-defined') {
+        if ($ThisUrl->getPredefined() == 'facebook') {
+            $AfficherFacebook = new FacebookController();
+            $AfficherFacebook -> AfficherFacebookCamp($ThisUrl->getId());
+            exit();
+        } else if ($ThisUrl->getPredefined() == 'google') {
+            $AfficherGoogle = new GoogleController();
+            $AfficherGoogle -> AfficherGoogleCamp($ThisUrl->getId());
+            exit();
+        }
     }
 }
 
