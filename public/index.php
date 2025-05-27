@@ -86,63 +86,58 @@ if (!empty($segments)) {
                 $AfficherAcceuil -> AfficherAcceuil();
             break;
         case 'campaigns':
+            $AfficherCampagn = new CampagnController();
             if (!isset($segments[1])) {
-                $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> AfficherCampagn();
                 break;
             } else if ($segments[1] == 'create') {
-                $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> create();
                 break;
             } else if ($segments[1] == 'update') {
-                $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> update($segments[2]);
                 break;
             } else if ($segments[1] == 'results') {
-                $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> results($segments[2]);
                 break;
             } else if ($segments[1] == 'formulaire') {
                 if (isset($segments[2]) && is_numeric($segments[2])) {
-                    $AfficherCampagn = new CampagnController();
                     $AfficherCampagn -> formulaire($segments[2]);
                     break;
                 } else if ($segments[2] == 'create') {
-                    $AfficherCampagn = new CampagnController();
                     $AfficherCampagn -> createFormulaire($segments[3]);
                     break;
                 } else if ($segments[2] == 'update') {
-                    $AfficherCampagn = new CampagnController();
                     $AfficherCampagn -> updateFormulaire($segments[3]);
                     break;
                 } else if ($segments[2] == 'delete') {
-                    $AfficherCampagn = new CampagnController();
                     $AfficherCampagn -> deleteFormulaire($segments[3]);
                     break;
                 }
             } else {
-                $AfficherCampagn = new CampagnController();
                 $AfficherCampagn -> AfficherCampagn();
                 break;
-            };
+            }
         case 'facebook':
             if (isset($segments[1]) && $segments[1] == 'create') {
                 $AfficherCampagn = new FacebookController();
                 $AfficherCampagn -> create();
                 break;
             }
+            break;
         case 'custom':
             if (isset($segments[1]) && $segments[1] == 'create') {
                 $AfficherCustom = new CustomController();
                 $AfficherCustom -> create();
                 break;
             }
+            break;
         case 'google':
             if (isset($segments[1]) && $segments[1] == 'create') {
                 $AfficherGoogle = new GoogleController();
                 $AfficherGoogle -> create();
                 break;
             }
+            break;
         case 'list':
             $AfficherListe = new ListController();
             $AfficherListe -> AfficherListe($segments[1]);
@@ -164,6 +159,7 @@ if (!empty($segments)) {
                 $AfficherUser -> login();
                 break;
             }
+            break;
         case 'logout':
             $AfficherUser = new LoginController();
             $AfficherUser -> logout();
