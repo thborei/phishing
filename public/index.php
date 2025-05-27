@@ -126,44 +126,19 @@ if (!empty($segments)) {
                 break;
             };
         case 'facebook':
-            if (!isset($segments[1])) {
-                $AfficherFacebook = new FacebookController();
-                $AfficherFacebook -> AfficherFacebook();
-                break;
-            } else if (isset($segments[1]) && is_numeric($segments[1])) {
-                $AfficherCampagn = new FacebookController();
-                $AfficherCampagn -> AfficherFacebookCamp($segments[1]);
-                break;
-            }else if ($segments[1] == 'create') {
+            if ($segments[1] == 'create') {
                 $AfficherCampagn = new FacebookController();
                 $AfficherCampagn -> create();
                 break;
             }
         case 'custom':
-            if (!isset($segments[1])) {
-                $AfficherCustom = new CustomController();
-                $AfficherCustom -> AfficherCustom($segments[1]);
-                break;
-            } else if ($segments[1] && is_numeric($segments[1])) {
-                $AfficherCustom = new CustomController();
-                $AfficherCustom -> AfficherCustom($segments[1]);
-                break;
-            }
-            else if ($segments[1] == 'create') {
+            if ($segments[1] == 'create') {
                 $AfficherCustom = new CustomController();
                 $AfficherCustom -> create();
                 break;
             }
         case 'google':
-            if (!isset($segments[1])) {
-                $AfficherGoogle = new GoogleController();
-                $AfficherGoogle -> AfficherGoogle();
-                break;
-            } else if (isset($segments[1]) && is_numeric($segments[1])) {
-                $AfficherGoogle = new GoogleController();
-                $AfficherGoogle -> AfficherGoogleCamp($segments[1]);
-                break;
-            } else if ($segments[1] == 'create') {
+            if ($segments[1] == 'create') {
                 $AfficherGoogle = new GoogleController();
                 $AfficherGoogle -> create();
                 break;
