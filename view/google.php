@@ -53,6 +53,7 @@
                 Se connecter</p>
         </div>
         <form action="/google/create" method="POST" autocomplete="off">
+            <input type="hidden" name="id_camp" id="id_camp" value="<?= $id_camp ?>">
             <div class="form-group">
                 <span id="email-error" class="error-message" style="font-size: 15px; line-height: 20px; font-family: Segoe UI; margin-top: 0px; font-weight: 400; color:#e81123;">Entrez
                     une adresse e-mail, un numéro de téléphone ou identifiant Skype valide.</span>
