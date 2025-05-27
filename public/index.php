@@ -24,6 +24,7 @@ use App\Controller\GoogleController;
 // Il va traiter les requêtes HTTP et appeler les bons contrôleurs en fonction de l'URL demandée.
 $customUrl = new CampagnRepository;
 $ThisUrl = $customUrl-> getCampagnByUrl($_GET['page']);
+var_dump($ThisUrl);
 if (isset($ThisUrl)){
     if ($ThisUrl->getType() == 'custom') {
         $AfficherCustom = new CustomController();
