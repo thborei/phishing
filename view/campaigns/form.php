@@ -1,8 +1,8 @@
 <?php if (isset($campaign)) : ?>
     <h2>Modifier une campagne</h2>
-<? else : ?>
+<?php else : ?>
     <h2>Créer une campagne</h2>
-<? endif; ?>
+<?php endif; ?>
 
 <div class="container">
     <form action="<?= !isset($campaign) ? '/campaigns/create' : '/campaigns/update/'.$campaign->getId() ?>" method="post">
