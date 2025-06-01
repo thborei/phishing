@@ -17,7 +17,7 @@
                     <td data-label="ID"><?= htmlspecialchars($campaign->getId()) ?></td>
                     <td data-label="Nom"><?= htmlspecialchars($campaign->getType()) ?></td>
                     <td data-label="URL"><?= htmlspecialchars($campaign -> getUrl()) ?>
-                        <img src="<?= $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId()) ?>" alt="QR Code" class="popup-image">
+                        <!-- <img src="<?= $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId()) ?>" alt="QR Code" class="popup-image"> -->
                     </td>
                     <td data-label="Actions">
                         <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>" class="bouton-campagne"> Modifier</a><br>
