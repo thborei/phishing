@@ -40,7 +40,7 @@ class Data
         $string = trim(($json['Name'] ?? "") . ' ' . ($json['Firstname'] ?? ""));
 
         if (!$string) {
-            return "Pas de nom renseigné";
+            return "Pas renseigné";
         }
         
         return $string;
