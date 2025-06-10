@@ -51,10 +51,6 @@ class User
         $subject = 'Notification de sécurité';
         $body = 'Bonjour ' . $this->getName() . ' ' . $this->getFirstname() . ',<br>Nous avons détecté une activité suspecte sur votre compte. Veuillez vérifier vos paramètres de sécurité.';
 
-        if (Mailer::send($to, $subject, $body)) {
-            echo "Email envoyé avec succès à " . htmlspecialchars($to);
-        } else {
-            echo "Échec de l'envoi de l'email.";
-        }
+        Mailer::send($to, $subject, $body);
     }
 }
