@@ -60,8 +60,6 @@ class CampagnController
         } else {
             $users = $this->userRepository->getUsers();
             $services = $this->userRepository->getServices();
-            var_dump($services);
-            die;
             $contenu = $this->moteur->render('campaigns/form', ['users' => $users, 'services' => $services]);
 
             echo $this->moteur->render('indexView', [
