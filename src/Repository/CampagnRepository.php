@@ -118,4 +118,9 @@ class CampagnRepository
         }
         return null;
     }
+    public function deleteCampagn(int $id): void
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM CAMPAGNS WHERE id_campagn = :id");
+        $stmt->execute([':id' => $id]);
+    }
 }

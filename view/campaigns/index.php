@@ -25,6 +25,7 @@
                         <?php if ($campaign->getType() === 'custom'): ?>
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>" class="bouton-campagne">Formulaire </a>
                         <?php endif; ?>
+                        <a href="/campaigns/delete/<?= htmlspecialchars($campaign->getId()) ?>" class="bouton-campagne">Supprimer</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

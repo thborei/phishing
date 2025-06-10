@@ -189,4 +189,10 @@ class CampagnController
         header('Location: /campaigns/formulaire/'.$campaign->getId()); // Redirection après la suppression
         exit;
     }
+    public function delete($id) {
+        $this->repository->deleteCampagn($id);
+
+        header('Location: /campaigns'); 
+        exit;
+    }
 }

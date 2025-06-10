@@ -73,6 +73,9 @@ if (!empty($segments)) {
             } else if ($segments[1] == 'results') {
                 $AfficherCampagn -> results($segments[2]);
                 break;
+            } else if ($segments[1] == 'delete') {
+                $AfficherCampagn -> delete($segments[2]);
+                break;
             } else if ($segments[1] == 'formulaire') {
                 if (isset($segments[2]) && is_numeric($segments[2])) {
                     $AfficherCampagn -> formulaire($segments[2]);
