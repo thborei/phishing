@@ -375,6 +375,7 @@ th, td {
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s, color 0.3s;
+    margin: 5px;
 }
 .bouton-campagne:hover {
     background-color: #ff4757;
