@@ -45,7 +45,7 @@ class User
     {
         return $this->password;
     }
-    public function EnvoieMail($id)
+    public function EnvoieMail()
     {
         $to = $this->getMail();
         $subject = 'Notification de sécurité';

@@ -48,8 +48,6 @@ class CampagnController
             $predifine = $_POST['predefinedOptions'] ?? null; 
             $service = $_POST['service'] ?? null;
             $users = $_POST['users'] ?? [];
-            var_dump($users);
-            die();
             // Validation des données
             if (empty($type) || empty($url)) {
                 echo "Veuillez remplir tous les champs.";
@@ -58,7 +56,9 @@ class CampagnController
 
             // Enregistrement dans la base de données
             $this->repository->createCampagn($type, $url, $predifine);
-
+            foreach ($users as $userId) {
+                $this->userRepository->getUser($userId)->EnvoieMail();
+            }
             header('Location: /campaigns'); // Redirection après l'enregistrement
             exit;
         } else {
