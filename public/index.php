@@ -20,8 +20,6 @@ use App\Controller\CustomController;
 use App\Repository\CampagnRepository;
 use App\Controller\GoogleController;
 
-// L'index.php nous servira de routeur : c'est le point d'entrée de notre application :
-// Il va traiter les requêtes HTTP et appeler les bons contrôleurs en fonction de l'URL demandée.
 $customUrl = new CampagnRepository;
 $ThisUrl = $customUrl-> getCampagnByUrl($_GET['page']);
 if (isset($ThisUrl)){
@@ -42,45 +40,19 @@ if (isset($ThisUrl)){
     }
 }
 
-// Première étape : on récupère l'URL à partir de la requête HTTP :
-// Le .htaccess redirige toutes les requêtes vers index.php, et ajoute l'URL demandée en paramètre GET 'page'.
-
-// Vérifie si l'URL est présente dans les paramètres GET; sinon, utilise '/' comme valeur par défaut.
 $url = $_GET['page'] ?? '/';
-// Supprime les barres obliques en début et en fin de l'URL pour normaliser le chemin.
 $url = trim($url, '/');
 
-// var_dump($url);
-
-// Divise l'URL en segments basés sur chaque barre oblique, stockant les résultats dans un tableau.
 $segments = explode('/', $url);
-$publicRoutes = ['login', 'logout', 'facebook', 'custom','google']; // Pages qui ne nécessitent PAS d'être connecté
-// Affiche le tableau de segments pour déboguer (à supprimer ou commenter en prod, biensûr).
-// var_dump($segments);
-
-// Par exemple : 
-// Si l'URL est '/bagarre/42', $segments contiendra ['bagarre', '42'].
-// Si l'URL est '/about', $segments contiendra ['about'].
-// Si l'URL est '/', $segments contiendra [].
-// etc...
-
-// Le fait d'adopter une structure de type /element1/element2/element3 permet de créer des routes plus facilement.
-// Par exemple, on pourrait imaginer que /bagarre/42 affiche la bagarre n°42, et /about affiche la page "À propos".
-// Que /bagarre/42/editer affiche un formulaire d'édition pour la bagarre n°42, etc...
-
-// On appelle cette approche RESTful routing : https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_Web_services
-// C'est une convention très répandue pour structurer les applications web, notamment les API.
-
-// On peut maintenant utiliser les segments pour déterminer quelle page afficher.
+$publicRoutes = ['login', 'logout', 'facebook', 'custom','google'];
 
 if (!in_array($segments[0], $publicRoutes) && empty($_SESSION['user_id'])) {
-    // L'utilisateur n'est PAS connecté et veut accéder à une page privée
     $AfficherUser = new LoginController();
     $AfficherUser->AfficherLogin();
     exit();
 }
 
-// Vérifie si le tableau de segments n'est pas vide pour éviter d'exécuter le switch sur un tableau vide.
+
 if (!empty($segments)) {
     switch ($segments[0]) {
         case 'acceuil':
@@ -171,10 +143,10 @@ if (!empty($segments)) {
             exit();
             break;
         default:
-            http_response_code(404); // Retourne un code HTTP 404 Not Found.
+            http_response_code(404);
             echo "Erreur 404 : Page non trouvée.";
             break;
     }
 }
 
-http_response_code(404); // Retourne un code HTTP 404 Not found si le code atteint ce point.
+http_response_code(404);
