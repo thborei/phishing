@@ -18,7 +18,7 @@
                     <td data-label="Mail"><?= htmlspecialchars($user->getJsonMail()) ?></td>
                     <td data-label="Mot de passe"><?= htmlspecialchars($user->getJsonPassword()) ?></td>
                     <td data-label="Actions">
-                        <a href="" class="bouton-campagne">Contacter</a><br>
+                        <a href="user/mail/<?= $user->getId()?>" class="bouton-campagne">Contacter</a><br>
                         <a href="list/<?= $user->getIduser() ?>" class="bouton-campagne">Liste</a>
                     </td>
                 </tr>

@@ -124,8 +124,13 @@ if (!empty($segments)) {
             break;
         case 'user':
             $AfficherUser = new UserController();
-            $AfficherUser -> AfficherUser();
-            break;
+            if (!isset($segments[1])) {
+                $AfficherUser -> AfficherUser();
+                break;
+            } else if ($segments[1] == 'mail') {
+                $AfficherUser -> EnvoieMail($segments[2]);
+                break;
+            }
         case 'login':
             if (!isset($segments[1])) {
                 $AfficherUser = new LoginController();
