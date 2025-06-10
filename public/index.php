@@ -21,7 +21,7 @@ use App\Repository\CampagnRepository;
 use App\Controller\GoogleController;
 
 $customUrl = new CampagnRepository;
-$ThisUrl = $customUrl-> getCampagnByUrl($_GET['page']);
+$ThisUrl = $customUrl-> getCampagnByUrl(urldecode($_GET['page']));
 if (isset($ThisUrl)){
     if ($ThisUrl->getType() == 'custom') {
         $AfficherCustom = new CustomController();
