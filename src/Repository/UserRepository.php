@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Model\Database;
+use App\Model\Service;
 use App\Model\User;
 use PDO;
 
@@ -83,6 +84,19 @@ class UserRepository
             );
         }
         return null;
+    }
+
+    public function getServices(): array
+    {
+        $query = 'SELECT * FROM SERVICES';
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return array_map(fn($row) => new Service(
+            $row['id_service'],
+            $row['name_service'],
+        ), $results);
     }
 
 }

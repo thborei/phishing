@@ -37,9 +37,11 @@
             <div id="serviceFields" style="display: none; margin-top: 1rem;">
                 <label for="serviceSelect">Sélectionnez un service :</label>
                 <select class="form-control" id="serviceSelect" name="service">
-                    <option value="Facebook">Facebook</option>
-                    <option value="Google">Google</option>
-                    <option value="LinkedIn">LinkedIn</option>
+                    <?php foreach ($services as $service): ?>
+                        <option value="<?= $service->getId() ?>">
+                            <?= htmlspecialchars($service->getName()) ?>
+                        </option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 

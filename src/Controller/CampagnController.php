@@ -7,6 +7,7 @@ use App\Repository\CampagnRepository;
 use App\Repository\FieldRepository;
 use App\Repository\DataRepository;
 use App\MoteurDeRendu;
+use App\Repository\UserRepository;
 
 
 class CampagnController
@@ -15,6 +16,7 @@ class CampagnController
     private CampagnRepository $repository;
     private FieldRepository $fieldRepository;
     private DataRepository $dataRepository;
+    private UserRepository $userRepository;
     
     public function __construct()
     {
@@ -22,6 +24,7 @@ class CampagnController
         $this->moteur = new MoteurDeRendu();
         $this->fieldRepository = new FieldRepository();
         $this->dataRepository = new DataRepository();
+        $this->userRepository = new UserRepository();
     }
 
     public function AfficherCampagn()
@@ -55,8 +58,10 @@ class CampagnController
             header('Location: /campaigns'); // Redirection après l'enregistrement
             exit;
         } else {
-            $contenu = $this->moteur->render('campaigns/form');
-        
+            $users = $this->userRepository->getUsers();
+            $services = $this->userRepository->getServices();
+            $contenu = $this->moteur->render('campaigns/form', ['users' => $users, 'services' => $services]);
+
             echo $this->moteur->render('indexView', [
                 'contenu' => $contenu,
                 'header' => $this->moteur->render('headerView'),
