@@ -50,7 +50,7 @@
                 <select class="form-control" id="userSelect" name="users[]" multiple>
                     <?php foreach ($users as $user): ?>
                         <option value="<?= $user->getId() ?>">
-                            <?= htmlspecialchars($user->getName() . ' ' . $user->getFirstname()) ?> (<?= htmlspecialchars($user->getEmail()) ?>)
+                            <?= htmlspecialchars($user->getName() . ' ' . $user->getFirstname()) ?> (<?= htmlspecialchars($user->getMail()) ?>)
                         </option>
                     <?php endforeach; ?>
                 </select>
