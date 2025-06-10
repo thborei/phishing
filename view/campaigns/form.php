@@ -26,6 +26,13 @@
                 </select>
             </div>
         </div>
+        <div>
+            <label for="Cible">Cible de la campagne</label>
+            <select class="form-control" id="Cible" name="Cible">
+                <option value="Facebook">Service</option>
+                <option value="Google">Utilisateur</option>
+            </select>
+        </div>
         <div class="form-group row">
             <div class="col-sm-10">
                 <button type="submit" class="btn btn-primary"><?= isset($campaign) ? 'Modifier' : 'Créer' ?></button>
