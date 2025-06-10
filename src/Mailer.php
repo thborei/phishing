@@ -14,7 +14,7 @@ class Mailer
 
         try {
             $mail->isSMTP();
-            $mail->Host = 'mailhog';   // ⚠️ important : le nom du service dans docker-compose
+            $mail->Host = 'mailhog';
             $mail->Port = 1025;
             $mail->SMTPAuth = false;
 

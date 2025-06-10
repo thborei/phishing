@@ -127,7 +127,7 @@ if (!empty($segments)) {
             if (!isset($segments[1])) {
                 $AfficherUser -> AfficherUser();
                 break;
-            } else if ($segments[1] == 'mail') {
+            } else if ($segments[1] == 'mail' && isset($segments[2]) && is_numeric($segments[2])) {
                 $AfficherUser -> EnvoieMail($segments[2]);
                 break;
             }
