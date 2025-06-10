@@ -34,7 +34,7 @@
 </div>
 <div id="deleteModal" class="modal" style="display: none;">
   <div class="modal-content">
-    <p>Es-tu sûr de vouloir supprimer cette campagne ?</p>
+    <p style="color: black">Es-tu sûr de vouloir supprimer cette campagne ?</p><br>
     <button onclick="cancelDelete()">Annuler</button>
     <a id="confirmDeleteBtn" href="#" class="btn btn-danger">Confirmer la suppression</a>
   </div>
