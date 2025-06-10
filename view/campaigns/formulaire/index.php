@@ -1,6 +1,6 @@
 <h2>Liste des Champs</h2>
 
-<a href="/campaigns/formulaire/create/<?= htmlspecialchars($campaign->getId()) ?>" class="btn btn-primary">Ajouter un formulaire</a>
+<a href="/campaigns/formulaire/create/<?= htmlspecialchars($campaign->getId()) ?>" class="btn btn-primary">Ajouter un champs</a>
 <div class="table-responsive">
     <table>
         <thead>

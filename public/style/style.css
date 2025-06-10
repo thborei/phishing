@@ -366,7 +366,7 @@ th, td {
 }
 
 .bouton-campagne {
-    display: flex;
+    display: inline-block;
     background-color: #031c3d;
     color: white;
     padding: 10px 20px;
