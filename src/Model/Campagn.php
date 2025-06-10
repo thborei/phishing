@@ -42,7 +42,7 @@ class Campagn
     
         $writer = new PngWriter();
         $result = $writer->write($qrCode);
-        $filePath = './img/qrCode' . $path . '.png';
+        $filePath = __DIR__ . '/../public/img/qrCode' . $path . '.png';
 
         file_put_contents($filePath, $result->getString());
         $dataUri = $result->getDataUri();

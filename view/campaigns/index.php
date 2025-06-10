@@ -25,10 +25,50 @@
                         <?php if ($campaign->getType() === 'custom'): ?>
                             <a href="/campaigns/formulaire/<?= $campaign -> getId() ?>" class="bouton-campagne">Formulaire </a>
                         <?php endif; ?>
-                        <a href="/campaigns/delete/<?= htmlspecialchars($campaign->getId()) ?>" class="bouton-campagne">Supprimer</a>
+                        <a href="#" onclick="confirmDelete(<?= htmlspecialchars($campaign->getId()) ?>)" class="bouton-campagne">Supprimer</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+<div id="deleteModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <p>Es-tu sûr de vouloir supprimer cette campagne ?</p>
+    <button onclick="cancelDelete()">Annuler</button>
+    <a id="confirmDeleteBtn" href="#" class="btn btn-danger">Confirmer la suppression</a>
+  </div>
+</div>
+
+<style>
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+</style>
+
+<script>
+function confirmDelete(id) {
+  const modal = document.getElementById("deleteModal");
+  modal.style.display = "flex";
+
+  const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+  confirmDeleteBtn.href = "/campaigns/delete/" + id;
+}
+
+function cancelDelete() {
+  const modal = document.getElementById("deleteModal");
+  modal.style.display = "none";
+}
+</script>
