@@ -36,10 +36,10 @@ class Campagn
     {
         return $this->url;
     }
-    public function createQrcode($url, $path):string
+    public function createQrcode($url, $path): string
     {
-        $qrCode = new QrCode('http://10.1.40.50:8080/'.$url);
-    
+        $qrCode = new QrCode('http://10.1.40.50:8080/' . $url);
+
         $writer = new PngWriter();
         $result = $writer->write($qrCode);
         $filePath = './img/qrCode' . $path . '.png';
@@ -47,13 +47,41 @@ class Campagn
         file_put_contents($filePath, $result->getString());
         $dataUri = $result->getDataUri();
 
-        $bin = file_get_contents($filePath);
-        $hexArray = str_split(bin2hex($bin),2);
-        $hex = "";
-        foreach($hexArray as $byte){
-            $hex .= "0x$byte, ";
+        // Convert PNG to 1-bit hex array
+        $im = imagecreatefrompng($filePath);
+        $width = imagesx($im);
+        $height = imagesy($im);
+
+        $hex = '';
+
+        for ($y = 0; $y < $height; $y++) {
+            $byte = 0;
+            $bit = 7;
+            for ($x = 0; $x < $width; $x++) {
+                $rgb = imagecolorat($im, $x, $y);
+                $colors = imagecolorsforindex($im, $rgb);
+                $luminance = ($colors['red'] + $colors['green'] + $colors['blue']) / 3;
+                $pixel = $luminance < 128 ? 1 : 0;
+
+                $byte |= ($pixel << $bit);
+                $bit--;
+
+                if ($bit < 0) {
+                    $hex .= sprintf("0x%02X, ", $byte);
+                    $bit = 7;
+                    $byte = 0;
+                }
+            }
+            // Padding last byte if needed
+            if ($bit != 7) {
+                $hex .= sprintf("0x%02X, ", $byte);
+            }
         }
+
+        imagedestroy($im);
+
         $this->hex = $hex;
+
         return $dataUri;
     }
     public function getHex():string|null
@@ -63,6 +91,40 @@ class Campagn
     public function getPredefined():string|null
     {
         return $this->predefined;
+    }
+    function pngTo1bitHexArray(string $filePath): string {
+    $im = imagecreatefrompng($filePath);
+    $width = imagesx($im);
+    $height = imagesy($im);
+    
+    $hex = '';
+    
+    for ($y = 0; $y < $height; $y++) {
+        $byte = 0;
+        $bit = 7;
+        for ($x = 0; $x < $width; $x++) {
+            $rgb = imagecolorat($im, $x, $y);
+            $colors = imagecolorsforindex($im, $rgb);
+            $luminance = ($colors['red'] + $colors['green'] + $colors['blue']) / 3;
+            $pixel = $luminance < 128 ? 1 : 0; // noir ou blanc
+            
+            $byte |= ($pixel << $bit);
+            $bit--;
+
+            if ($bit < 0) {
+                $hex .= sprintf("0x%02X, ", $byte);
+                $bit = 7;
+                $byte = 0;
+            }
+            }
+            // Pad last byte if line width not divisible by 8
+            if ($bit != 7) {
+                $hex .= sprintf("0x%02X, ", $byte);
+            }
+        }
+
+        imagedestroy($im);
+        return $hex;
     }
 
 }
