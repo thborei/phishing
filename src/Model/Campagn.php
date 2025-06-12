@@ -11,17 +11,23 @@ class Campagn
     private $url;
     private $predefined;
     private $hex;
+    private $active;
+    private $displayed;
 
     public function __construct(
         int $id,
         string $type,
         string $url,
         ?string $predefined,
+        ?bool $active = true,
+        ?bool $displayed = true
     ){
         $this->id = $id;
         $this->type = $type;
         $this->url = $url;
         $this->predefined = $predefined;
+        $this->active = $active ?? true;
+        $this->displayed = $displayed ?? true;
     }
     
     public function getId():int
@@ -35,6 +41,18 @@ class Campagn
     public function getUrl():string
     {
         return $this->url;
+    }
+    public function getPredefined():?string
+    {
+        return $this->predefined;
+    }
+    public function isActive():bool
+    {
+        return $this->active;
+    }
+    public function isDisplayed():bool
+    {
+        return $this->displayed;
     }
     public function createQrcode($url, $path): string
     {
@@ -88,43 +106,4 @@ class Campagn
     {
         return $this->hex;
     }
-    public function getPredefined():string|null
-    {
-        return $this->predefined;
-    }
-    function pngTo1bitHexArray(string $filePath): string {
-    $im = imagecreatefrompng($filePath);
-    $width = imagesx($im);
-    $height = imagesy($im);
-    
-    $hex = '';
-    
-    for ($y = 0; $y < $height; $y++) {
-        $byte = 0;
-        $bit = 7;
-        for ($x = 0; $x < $width; $x++) {
-            $rgb = imagecolorat($im, $x, $y);
-            $colors = imagecolorsforindex($im, $rgb);
-            $luminance = ($colors['red'] + $colors['green'] + $colors['blue']) / 3;
-            $pixel = $luminance < 128 ? 1 : 0; // noir ou blanc
-            
-            $byte |= ($pixel << $bit);
-            $bit--;
-
-            if ($bit < 0) {
-                $hex .= sprintf("0x%02X, ", $byte);
-                $bit = 7;
-                $byte = 0;
-            }
-            }
-            // Pad last byte if line width not divisible by 8
-            if ($bit != 7) {
-                $hex .= sprintf("0x%02X, ", $byte);
-            }
-        }
-
-        imagedestroy($im);
-        return $hex;
-    }
-
 }

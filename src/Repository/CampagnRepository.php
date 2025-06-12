@@ -38,7 +38,9 @@ class CampagnRepository
             $row['id_campagn'],
             $row['type_campagn'],
             $row['url_campagn'],
-            $row['predefine_campagn'] ?? null
+            $row['predefine_campagn'] ?? null,
+            $row['active'],
+            $row['displayed']
         )  ,$results);
     }
 
@@ -57,16 +59,16 @@ class CampagnRepository
         );
     }
 
-    public function createCampagn(string $type, string $url, ?string $predifine): void
+    public function createCampagn(string $type, string $url, ?string $predifine, ?bool $active, ?bool $displayed): void
     {
-        $stmt = $this->pdo->prepare("INSERT INTO CAMPAGNS (type_campagn, url_campagn, predefine_campagn) VALUES (:type, :url, :predifine)");
-        $stmt->execute([':type' => $type, ':url' => $url, ':predifine' => $predifine]);
+        $stmt = $this->pdo->prepare("INSERT INTO CAMPAGNS (type_campagn, url_campagn, predefine_campagn, active, displayed) VALUES (:type, :url, :predifine, :active, :displayed)");
+        $stmt->execute([':type' => $type, ':url' => $url, ':predifine' => $predifine, ':active' => $active, ':displayed' => $displayed]);
     }
 
-    public function updateCampagn(int $id, string $type, string $url): void
+    public function updateCampagn(int $id, string $type, string $url, ?bool $active, ?bool $displayed): void
     {
-        $stmt = $this->pdo->prepare("UPDATE CAMPAGNS SET type_campagn = :type, url_campagn = :url WHERE id_campagn = :id");
-        $stmt->execute([':id' => $id, ':type' => $type, ':url' => $url]);
+        $stmt = $this->pdo->prepare("UPDATE CAMPAGNS SET type_campagn = :type, url_campagn = :url, active = :active, displayed = :displayed WHERE id_campagn = :id");
+        $stmt->execute([':id' => $id, ':type' => $type, ':url' => $url, ':active' => $active, ':displayed' => $displayed]);
     }
     
     public function getFieldsByCampagn($id): array

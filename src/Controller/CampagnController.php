@@ -48,6 +48,8 @@ class CampagnController
             $predifine = $_POST['predefinedOptions'] ?? null; 
             $service = $_POST['service'] ?? null;
             $users = $_POST['users'] ?? [];
+            $active = isset($_POST['active']) ? true : false;
+            $displayed = isset($_POST['displayed']) ? true : false;
             // Validation des données
             if (empty($type) || empty($url)) {
                 echo "Veuillez remplir tous les champs.";
@@ -55,7 +57,7 @@ class CampagnController
             }
 
             // Enregistrement dans la base de données
-            $this->repository->createCampagn($type, $url, $predifine);
+            $this->repository->createCampagn($type, $url, $predifine, $active, $displayed);
             foreach ($users as $userId) {
                 $this->userRepository->getUser($userId)->EnvoieMail();
             }
@@ -80,6 +82,8 @@ class CampagnController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $type = $_POST['type'];
             $url = $_POST['url'];
+            $active = isset($_POST['active']) ? true : false;
+            $displayed = isset($_POST['displayed']) ? true : false;
 
             // Validation des données
             if (empty($type) || empty($url)) {
@@ -88,7 +92,7 @@ class CampagnController
             }
 
             // Mise à jour dans la base de données
-            $this->repository->updateCampagn($id, $type, $url);
+            $this->repository->updateCampagn($id, $type, $url, $active, $displayed);
             header('Location: /campaigns'); // Redirection après la mise à jour
             exit;
         } else {

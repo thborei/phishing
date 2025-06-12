@@ -8,6 +8,8 @@
                 <th>Numéro de Campagne</th>
                 <th>Nom de la campagne</th>
                 <th>Lien de la Campagne</th>
+                <th>Active</th>
+                <th>Affichée</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -18,8 +20,9 @@
                     <td data-label="Nom"><?= htmlspecialchars($campaign->getType()) ?></td>
                     <td data-label="URL"><?= htmlspecialchars($campaign -> getUrl()) ?>
                         <img src="<?= $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId()) ?>" alt="QR Code" class="popup-image">
-                        <?= $campaign -> getHex() ?>
                     </td>
+                    <td data-label="Active"><?= $campaign->isActive() ? 'Oui' : 'Non' ?></td>
+                    <td data-label="Affichée"><?= $campaign->isDisplayed() ? 'Oui' : 'Non' ?></td>
                     <td data-label="Actions">
                         <a href="/campaigns/update/<?= htmlspecialchars($campaign->getId()) ?>" class="bouton-campagne"> Modifier</a><br>
                         <a href="/campaigns/results/<?= $campaign -> getId() ?>" class="bouton-campagne">Résultat</a><br>
