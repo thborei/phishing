@@ -19,7 +19,8 @@ class QRCodeController
     {
         // Récupérer les campagnes affichées
         $campaign = $this->campaignRepository->getDisplayedCampaign();
-        
+        $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId());
+
         echo $campaign->getHex();
         die;
     }
