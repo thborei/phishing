@@ -56,9 +56,20 @@
                 </select>
             </div>
 
-            // active 
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="active" name="active" <?= isset($campaign) && $campaign->isActive() ? 'checked' : '' ?>>
+                <label class="form-check-label" for="active">
+                   Activé
+                </label>
+            </div>
 
-            // displayed
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="displayed" name="displayed" <?= isset($campaign) && $campaign->isDisplayed() ? 'checked' : '' ?>>
+                <label class="form-check-label" for="displayed">
+                   Affichée
+                </label>
+            </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
