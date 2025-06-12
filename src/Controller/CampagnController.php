@@ -58,6 +58,7 @@ class CampagnController
             if (empty($users) && !empty($service)) {
             $users = $this->userRepository->getUsersByService($service);
             }
+            var_dump($users);
             $this->repository->createCampagn($type, $url, $predifine, $active, $displayed);
             foreach ($users as $userId) {
                 $this->userRepository->getUser($userId)->EnvoieMail();
