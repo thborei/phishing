@@ -56,7 +56,9 @@ class CampagnController
                 return;
             }
 
-            // Enregistrement dans la base de données
+            $users = $this->userRepository->getUsersByService($service);
+            var_dump($users);
+            die;
             $this->repository->createCampagn($type, $url, $predifine, $active, $displayed);
             foreach ($users as $userId) {
                 $this->userRepository->getUser($userId)->EnvoieMail();

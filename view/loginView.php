@@ -32,9 +32,9 @@
 </div>
 </form>
 
-<!-- SCRIPT -->
+
 <script>
-// Gestion du formulaire
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
@@ -49,7 +49,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     errorDiv.style.display = "none";
 });
 
-// Afficher / cacher le mot de passe
+
 const showHideIcon = document.querySelector('.show-hide');
 const passwordInput = document.getElementById('password');
 
