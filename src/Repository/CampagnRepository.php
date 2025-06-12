@@ -55,7 +55,9 @@ class CampagnRepository
             $row['id_campagn'],
             $row['type_campagn'],
             $row['url_campagn'],
-            $row['predefine_campagn'] ?? null
+            $row['predefine_campagn'] ?? null,
+            $row['active'],
+            $row['displayed']
         );
     }
 
@@ -115,7 +117,9 @@ class CampagnRepository
                 $row['id_campagn'],
                 $row['type_campagn'],
                 $row['url_campagn'],
-                $row['predefine_campagn'] ?? null
+                $row['predefine_campagn'] ?? null,
+                $row['active'],
+                $row['displayed']
             );
         }
         return null;
