@@ -119,8 +119,8 @@ if (!empty($segments)) {
             break;
         case 'qrcode':
             if (isset($segments[1]) && $segments[1] == 'get') {
-                $AfficherGoogle = new QRCodeController();
-                $AfficherGoogle -> get();
+                $AfficherQRCode = new QRCodeController();
+                $AfficherQRCode -> get();
                 break;
             }
             break;
