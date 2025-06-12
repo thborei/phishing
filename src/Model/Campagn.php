@@ -26,8 +26,8 @@ class Campagn
         $this->type = $type;
         $this->url = $url;
         $this->predefined = $predefined;
-        $this->active = $active ?? true;
-        $this->displayed = $displayed ?? true;
+        $this->active = $active;
+        $this->displayed = $displayed;
     }
     
     public function getId():int
