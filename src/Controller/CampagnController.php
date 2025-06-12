@@ -55,7 +55,7 @@ class CampagnController
                 echo "Veuillez remplir tous les champs.";
                 return;
             }
-             elseif (empty($users)) {
+             elseif (empty($users) && empty($service)) {
                 echo "Veuillez sélectionner au moins un utilisateur.";
                 return;
             }
@@ -71,7 +71,7 @@ class CampagnController
             }
 
             $this->repository->createCampagn($type, $url, $predifine, $active, $displayed);
-            
+
             header('Location: /campaigns'); // Redirection après l'enregistrement
             exit;
         }
