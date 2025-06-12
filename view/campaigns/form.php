@@ -22,7 +22,7 @@
                 <label for="predefinedOptions">Options prédéfinies :</label>
                 <select class="form-control" id="predefinedOptions" name="predefinedOptions">
                     <option value="Facebook">Facebook</option>
-                    <option value="Google">Google</option>
+                    <option value="Microsoft">Microsoft</option>
                 </select>
             </div>
         </div>

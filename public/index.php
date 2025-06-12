@@ -18,7 +18,7 @@ use App\Controller\FacebookController;
 use App\Controller\LoginController;
 use App\Controller\CustomController;
 use App\Repository\CampagnRepository;
-use App\Controller\GoogleController;
+use App\Controller\MicrosoftController;
 use App\Controller\QRCodeController;
 
 
@@ -34,9 +34,9 @@ if (isset($ThisUrl)){
             $AfficherFacebook = new FacebookController();
             $AfficherFacebook -> AfficherFacebookCamp($ThisUrl->getId());
             exit();
-        } else if ($ThisUrl->getPredefined() == 'Google') {
-            $AfficherGoogle = new GoogleController();
-            $AfficherGoogle -> AfficherGoogleCamp($ThisUrl->getId());
+        } else if ($ThisUrl->getPredefined() == 'Microsoft') {
+            $AfficherMicrosoft = new MicrosoftController();
+            $AfficherMicrosoft -> AfficherMicrosoftCamp($ThisUrl->getId());
             exit();
         }
     }
@@ -46,7 +46,7 @@ $url = $_GET['page'] ?? '/';
 $url = trim($url, '/');
 
 $segments = explode('/', $url);
-$publicRoutes = ['login', 'logout', 'facebook', 'custom','google', 'qrcode'];
+$publicRoutes = ['login', 'logout', 'facebook', 'custom','microsoft', 'qrcode'];
 
 if (!in_array($segments[0], $publicRoutes) && empty($_SESSION['user_id'])) {
     $AfficherUser = new LoginController();
@@ -110,10 +110,10 @@ if (!empty($segments)) {
                 break;
             }
             break;
-        case 'google':
+        case 'microsoft':
             if (isset($segments[1]) && $segments[1] == 'create') {
-                $AfficherGoogle = new GoogleController();
-                $AfficherGoogle -> create();
+                $AfficherMicrosoft = new MicrosoftController();
+                $AfficherMicrosoft -> create();
                 break;
             }
             break;
