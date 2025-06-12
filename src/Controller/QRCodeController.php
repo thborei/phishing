@@ -19,8 +19,8 @@ class QRCodeController
     {
         // Récupérer les campagnes affichées
         $campaign = $this->campaignRepository->getDisplayedCampaign();
-        var_dump($campaign);
-        die;
+        
         echo $campaign->getHex();
+        die;
     }
 }
