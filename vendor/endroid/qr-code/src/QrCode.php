@@ -16,7 +16,7 @@ final readonly class QrCode implements QrCodeInterface
         private EncodingInterface $encoding = new Encoding('UTF-8'),
         private ErrorCorrectionLevel $errorCorrectionLevel = ErrorCorrectionLevel::Low,
         private int $size = 300,
-        private int $margin = 50,
+        private int $margin = 0,
         private RoundBlockSizeMode $roundBlockSizeMode = RoundBlockSizeMode::Margin,
         private ColorInterface $foregroundColor = new Color(0, 0, 0),
         private ColorInterface $backgroundColor = new Color(255, 255, 255),
