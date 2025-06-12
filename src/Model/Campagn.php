@@ -61,7 +61,7 @@ class Campagn
                 $rgb = imagecolorat($im, $x, $y);
                 $colors = imagecolorsforindex($im, $rgb);
                 $luminance = ($colors['red'] + $colors['green'] + $colors['blue']) / 3;
-                $pixel = $luminance < 128 ? 1 : 0;
+                $pixel = $luminance < 128 ? 0 : 1;
 
                 $byte |= ($pixel << $bit);
                 $bit--;
