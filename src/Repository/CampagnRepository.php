@@ -62,15 +62,15 @@ class CampagnRepository
     public function createCampagn(string $type, string $url, ?string $predifine, ?bool $active, ?bool $displayed): void
     {
         $stmt = $this->pdo->prepare("INSERT INTO CAMPAGNS (type_campagn, url_campagn, predefine_campagn, active, displayed) VALUES (:type, :url, :predifine, :active, :displayed)");
-        $stmt->execute([':type' => $type, ':url' => $url, ':predifine' => $predifine, ':active' => $active, ':displayed' => $displayed]);
+        $stmt->execute([':type' => $type, ':url' => $url, ':predifine' => $predifine, ':active' => $active ? 1 : 0, ':displayed' => $displayed ? 1 : 0]);
     }
 
     public function updateCampagn(int $id, string $type, string $url, ?bool $active, ?bool $displayed): void
     {
         $stmt = $this->pdo->prepare("UPDATE CAMPAGNS SET type_campagn = :type, url_campagn = :url, active = :active, displayed = :displayed WHERE id_campagn = :id");
-        $stmt->execute([':id' => $id, ':type' => $type, ':url' => $url, ':active' => $active, ':displayed' => $displayed]);
+        $stmt->execute([':id' => $id, ':type' => $type, ':url' => $url, ':active' => $active ? 1 : 0, ':displayed' => $displayed ? 1 : 0]);
     }
-    
+
     public function getFieldsByCampagn($id): array
     {
         $stmt = $this->pdo->prepare("SELECT * FROM FIELDS WHERE id_campagn = :id");
@@ -132,7 +132,7 @@ class CampagnRepository
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        
+
         return new Campagn(
             $result['id_campagn'],
             $result['type_campagn'],
