@@ -125,4 +125,21 @@ class CampagnRepository
         $stmt = $this->pdo->prepare("DELETE FROM CAMPAGNS WHERE id_campagn = :id");
         $stmt->execute([':id' => $id]);
     }
+
+    public function getDisplayedCampaign() 
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM CAMPAGNS WHERE displayed = 1 AND active = 1 LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        
+        return new Campagn(
+            $result['id_campagn'],
+            $result['type_campagn'],
+            $result['url_campagn'],
+            $result['predefine_campagn'],
+            $result['active'],
+            $result['displayed']
+        );
+    }
 }

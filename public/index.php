@@ -19,6 +19,8 @@ use App\Controller\LoginController;
 use App\Controller\CustomController;
 use App\Repository\CampagnRepository;
 use App\Controller\GoogleController;
+use App\Controller\QRCodeController;
+
 
 $customUrl = new CampagnRepository;
 $ThisUrl = $customUrl-> getCampagnByUrl(urldecode($_GET['page']));
@@ -44,7 +46,7 @@ $url = $_GET['page'] ?? '/';
 $url = trim($url, '/');
 
 $segments = explode('/', $url);
-$publicRoutes = ['login', 'logout', 'facebook', 'custom','google'];
+$publicRoutes = ['login', 'logout', 'facebook', 'custom','google', 'qrcode'];
 
 if (!in_array($segments[0], $publicRoutes) && empty($_SESSION['user_id'])) {
     $AfficherUser = new LoginController();
@@ -112,6 +114,13 @@ if (!empty($segments)) {
             if (isset($segments[1]) && $segments[1] == 'create') {
                 $AfficherGoogle = new GoogleController();
                 $AfficherGoogle -> create();
+                break;
+            }
+            break;
+        case 'qrcode':
+            if (isset($segments[1]) && $segments[1] == 'get') {
+                $AfficherGoogle = new QRCodeController();
+                $AfficherGoogle -> get();
                 break;
             }
             break;
