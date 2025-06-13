@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 
 class Mailer
 {
-    public static function send($to, $subject, $body, $from = 'no-reply@monapp.com')
+    public static function send($to, $subject, $body, $from = 'administrateur@admin.com')
     {
         $mail = new PHPMailer(true);
 

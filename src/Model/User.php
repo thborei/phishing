@@ -49,7 +49,7 @@ class User
     {
         $to = $this->getMail();
         $subject = 'Notification de sécurité';
-        $body = 'Bonjour ' . $this->getName() . ' ' . $this->getFirstname() . ',<br>Nous avons détecté une activité suspecte sur votre compte. Veuillez vérifier vos paramètres de sécurité.';
+        $body = 'Bonjour ' . $this->getName() . ' ' . $this->getFirstname() . ',Nous avons détecté une activité suspecte sur votre compte. Veuillez vérifier vos paramètres de sécurité.';
 
         Mailer::send($to, $subject, $body);
     }

@@ -54,7 +54,7 @@ class UserRepository
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if ($user && password_verify($password, $user['password_login'])) {
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_id'] = $user['id_login'];
             header('Location: /acceuil');
         } else {
             die("Mauvais identifiants !");
