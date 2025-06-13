@@ -54,54 +54,58 @@ class Campagn
     {
         return $this->displayed;
     }
-    public function createQrcode($url, $path): string
-    {
-        $qrCode = new QrCode('http://10.1.40.50:8080/' . $url);
+public function createQrcode($url, $path): string
+{
+    $qrCode = new QrCode('http://10.1.40.50:8080/' . $url);
 
-        $writer = new PngWriter();
-        $result = $writer->write($qrCode);
-        $filePath = './img/qrCode' . $path . '.png';
+    $writer = new PngWriter();
+    $result = $writer->write($qrCode);
+    $filePath = './img/qrCode' . $path . '.png';
 
-        file_put_contents($filePath, $result->getString());
-        $dataUri = $result->getDataUri();
+    // On enregistre toujours le PNG
+    file_put_contents($filePath, $result->getString());
+    $dataUri = $result->getDataUri();
 
-        // Convert PNG to 1-bit hex array
-        $im = imagecreatefrompng($filePath);
-        $width = imagesx($im);
-        $height = imagesy($im);
+    // Traitement de l'image en mémoire
+    $im = imagecreatefrompng($filePath);
+    $width = imagesx($im);
+    $height = imagesy($im);
 
-        $hex = '';
+    $binary = '';
+    for ($y = 0; $y < $height; $y++) {
+        $byte = 0;
+        $bit = 7;
+        for ($x = 0; $x < $width; $x++) {
+            $rgb = imagecolorat($im, $x, $y);
+            $colors = imagecolorsforindex($im, $rgb);
+            $luminance = ($colors['red'] + $colors['green'] + $colors['blue']) / 3;
+            $pixel = $luminance < 128 ? 0 : 1;
 
-        for ($y = 0; $y < $height; $y++) {
-            $byte = 0;
-            $bit = 7;
-            for ($x = 0; $x < $width; $x++) {
-                $rgb = imagecolorat($im, $x, $y);
-                $colors = imagecolorsforindex($im, $rgb);
-                $luminance = ($colors['red'] + $colors['green'] + $colors['blue']) / 3;
-                $pixel = $luminance < 128 ? 0 : 1;
+            $byte |= ($pixel << $bit);
+            $bit--;
 
-                $byte |= ($pixel << $bit);
-                $bit--;
-
-                if ($bit < 0) {
-                    $hex .= sprintf("0x%02X, ", $byte);
-                    $bit = 7;
-                    $byte = 0;
-                }
-            }
-            // Padding last byte if needed
-            if ($bit != 7) {
-                $hex .= sprintf("0x%02X, ", $byte);
+            if ($bit < 0) {
+                $binary .= chr($byte);
+                $bit = 7;
+                $byte = 0;
             }
         }
-
-        imagedestroy($im);
-
-        $this->hex = $hex;
-
-        return $dataUri;
+        if ($bit != 7) {
+            $binary .= chr($byte);
+        }
     }
+
+    imagedestroy($im);
+
+    // Option 1: stocker la chaîne brute (binaire) si ton API accepte l'encodage binaire direct
+    $this->hex = $binary;
+
+    // Option 2: si tu veux l'envoyer en hex (lisible et JSON-safe)
+    // $this->hex = bin2hex($binary); // => "ffffff0000f0..."
+
+    return $dataUri;
+}
+
     public function getHex():string|null
     {
         return $this->hex;
