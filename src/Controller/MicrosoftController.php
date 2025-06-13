@@ -6,7 +6,7 @@ use App\MoteurDeRendu;
 use App\Repository\DataRepository;
 use App\Repository\UserRepository;
 
-class GoogleController
+class MicrosoftController
 {
     private MoteurDeRendu $moteur;
     private DataRepository $repository;
@@ -18,15 +18,15 @@ class GoogleController
         $this->repository = new DataRepository();
         $this->userRepository = new UserRepository();
     }
-    public function AfficherGoogle()
+    public function AfficherMicrosoft()
     {
-        echo $this->moteur->render('google');
+        echo $this->moteur->render('microsoft');
     }
 
-    public function AfficherGoogleCamp($id)
+    public function AfficherMicrosoftCamp($id)
     {
         $id_camp = $id;
-        echo $this->moteur->render('google', [
+        echo $this->moteur->render('microsoft', [
             'id_camp' => $id_camp]);
     }
 

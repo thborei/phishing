@@ -55,15 +55,27 @@ class CampagnController
                 echo "Veuillez remplir tous les champs.";
                 return;
             }
-
-            // Enregistrement dans la base de données
-            $this->repository->createCampagn($type, $url, $predifine, $active, $displayed);
-            foreach ($users as $userId) {
+             elseif (empty($users) && empty($service)) {
+                echo "Veuillez sélectionner au moins un utilisateur.";
+                return;
+            }
+            if (!empty($users) && empty($service)) {
+                foreach ($users as $userId) {
                 $this->userRepository->getUser($userId)->EnvoieMail();
             }
+            }
+            if (empty($users) && !empty($service)) {
+            $users = $this->userRepository->getUsersByService($service);
+            foreach ($users as $user) {
+                $user -> EnvoieMail();
+            }
+
+            $this->repository->createCampagn($type, $url, $predifine, $active, $displayed);
+
             header('Location: /campaigns'); // Redirection après l'enregistrement
             exit;
-        } else {
+        }
+    } else {
             $users = $this->userRepository->getUsers();
             $services = $this->userRepository->getServices();
             $contenu = $this->moteur->render('campaigns/form', ['users' => $users, 'services' => $services]);

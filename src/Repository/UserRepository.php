@@ -98,5 +98,19 @@ class UserRepository
             $row['name_service'],
         ), $results);
     }
+    public function getUsersByService(int $serviceId): array
+    {
+        $stmt = $this->pdo->prepare("SELECT USERS.* FROM USERS JOIN Travail ON USERS.id_user = Travail.id_user WHERE Travail.id_service = :serviceId");
+        $stmt->execute([':serviceId' => $serviceId]);
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return array_map(fn($row) => new User(
+            $row['id_user'],
+            $row['name_user'],
+            $row['firstname_user'],
+            $row['mail_user'],
+            $row['password_user']
+        ), $results);
+    }
 
 }

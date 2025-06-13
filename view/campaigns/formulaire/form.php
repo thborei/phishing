@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="type">Type de formulaire</label>
+            <label for="type">Type de champs</label>
             <select class="form-control" id="type" name="type">
                 <option value="text" <?= isset($field) && $field->getType() === 'text' ? 'selected' : '' ?>>Texte</option>
                 <option value="password" <?= isset($field) && $field->getType() === 'password' ? 'selected' : '' ?>>Mot de passe</option>
