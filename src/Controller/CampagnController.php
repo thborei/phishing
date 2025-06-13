@@ -61,6 +61,7 @@ class CampagnController
             }
             if (!empty($users) && empty($service)) {
                 var_dump($users);
+                die;
                 foreach ($users as $userId) {
                 $this->userRepository->getUser($userId)->EnvoieMail();
             }
