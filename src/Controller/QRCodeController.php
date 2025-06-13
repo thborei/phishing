@@ -17,11 +17,16 @@ class QRCodeController
     }
     public function get()
     {
-        // Récupérer les campagnes affichées
-        $campaign = $this->campaignRepository->getDisplayedCampaign();
-        $campaign -> createQrcode($campaign -> getUrl(), $campaign -> getId());
+    $campaign = $this->campaignRepository->getDisplayedCampaign();
+    $campaign->createQrcode($campaign->getUrl(), $campaign->getId());
 
-        echo $campaign->getHex();
-        die;
+    $hexData = $campaign->getHex();
+
+    header('Content-Type: text/plain');
+    header('Content-Length: ' . strlen($hexData));
+    header('Connection: close');
+
+    echo $hexData;
+    exit;
     }
 }
