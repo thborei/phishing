@@ -42,42 +42,53 @@ class CampagnController
     }
 
     public function create() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $type = $_POST['type'];
-            $url = $_POST['url'] . "/";
-            $predifine = $_POST['predefinedOptions'] ?? null; 
+            $url = rtrim($_POST['url'], '/') . '/';
+            $predifine = $_POST['predefinedOptions'] ?? null;
+            $cible = $_POST['Cible'] ?? null;
             $service = $_POST['service'] ?? null;
             $users = $_POST['users'] ?? [];
-            $active = isset($_POST['active']) ? true : false;
-            $displayed = isset($_POST['displayed']) ? true : false;
-            
-            // Validation des données
+            $active = isset($_POST['active']);
+            $displayed = isset($_POST['displayed']);
+
             if (empty($type) || empty($url)) {
                 echo "Veuillez remplir tous les champs.";
                 return;
             }
-             elseif (empty($users) && empty($service)) {
+
+            if (!in_array($cible, ['utilisateur', 'service'])) {
+                echo "Cible invalide.";
+                return;
+            }
+
+            if ($cible === 'utilisateur' && empty($users)) {
                 echo "Veuillez sélectionner au moins un utilisateur.";
                 return;
             }
-            if (!empty($users) && empty($service)) {
-                var_dump($users);
-                die;
-                foreach ($users as $userId) {
-                $this->userRepository->getUser($userId)->EnvoieMail();
-            }
-            }
-            if (empty($users) && !empty($service)) {
-            $users = $this->userRepository->getUsersByService($service);
-            foreach ($users as $user) {
-                $user -> EnvoieMail();
-            }
-            }
-            $this->repository->createCampagn($type, $url, $predifine, $active, $displayed);
 
-            header('Location: /campaigns'); // Redirection après l'enregistrement
+            if ($cible === 'service' && empty($service)) {
+                echo "Veuillez sélectionner un service.";
+                return;
+            }
+
+            if ($cible === 'utilisateur') {
+                foreach ($users as $userId) {
+                    $user = $this->userRepository->getUser($userId);
+                    if ($user) {
+                        $user->EnvoieMail();
+                    }
+                }
+            } elseif ($cible === 'service') {
+                $users = $this->userRepository->getUsersByService($service);
+                foreach ($users as $user) {
+                    $user->EnvoieMail();
+                }
+            }
+
+            $this->repository->createCampagn($type, $url, $predifine, $active, $displayed);
+            header('Location: /campaigns');
             exit;
-        
     } else {
             $users = $this->userRepository->getUsers();
             $services = $this->userRepository->getServices();
