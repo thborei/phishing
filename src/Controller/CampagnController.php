@@ -60,8 +60,6 @@ class CampagnController
                 echo "Veuillez sélectionner au moins un utilisateur.";
                 return;
             }
-            var_dump($users);
-            die;
             if (!empty($users) && empty($service)) {
                 var_dump($users);
                 die;
@@ -74,12 +72,12 @@ class CampagnController
             foreach ($users as $user) {
                 $user -> EnvoieMail();
             }
-
+            }
             $this->repository->createCampagn($type, $url, $predifine, $active, $displayed);
 
             header('Location: /campaigns'); // Redirection après l'enregistrement
             exit;
-        }
+        
     } else {
             $users = $this->userRepository->getUsers();
             $services = $this->userRepository->getServices();
