@@ -53,4 +53,9 @@ class User
 
         Mailer::send($to, $subject, $body);
     }
+    public function EnvoieMailCustom(string $subject, string $body)
+    {
+        $to = $this->getMail();
+        Mailer::send($to, $subject, $body);
+    }
 }

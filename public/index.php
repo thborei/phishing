@@ -20,6 +20,7 @@ use App\Controller\CustomController;
 use App\Repository\CampagnRepository;
 use App\Controller\MicrosoftController;
 use App\Controller\QRCodeController;
+use App\Controller\MailController;
 
 
 $customUrl = new CampagnRepository;
@@ -140,6 +141,18 @@ if (!empty($segments)) {
                 $AfficherUser -> EnvoieMail($segments[2]);
                 break;
             }
+        case 'mail':
+            $AfficherMail = new MailController();
+            if (isset($segments[1]) && is_numeric($segments[1])) {
+                if (!isset($segments[2])) {
+                    $AfficherMail -> showMailForm($segments[1]);
+                    break;
+                } else if ($segments[2] == 'send') {
+                    $AfficherMail -> sendMail($segments[1]);
+                    break;
+                }
+            }
+            break;
         case 'login':
             if (!isset($segments[1])) {
                 $AfficherUser = new LoginController();

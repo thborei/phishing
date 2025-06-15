@@ -5,7 +5,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-<form action="login/log" method="POST" id="loginForm">
+<form action="/login/log" method="POST" id="loginForm">
 <div class="screen-1">
   <img class="logo" src="/img/Charbonneaux.png" alt="Logo Charbonneaux"/>
 
