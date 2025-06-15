@@ -50,6 +50,7 @@ class CampagnController
             $users = $_POST['users'] ?? [];
             $active = isset($_POST['active']) ? true : false;
             $displayed = isset($_POST['displayed']) ? true : false;
+            
             // Validation des données
             if (empty($type) || empty($url)) {
                 echo "Veuillez remplir tous les champs.";
@@ -59,6 +60,8 @@ class CampagnController
                 echo "Veuillez sélectionner au moins un utilisateur.";
                 return;
             }
+            var_dump($users);
+            die;
             if (!empty($users) && empty($service)) {
                 var_dump($users);
                 die;
