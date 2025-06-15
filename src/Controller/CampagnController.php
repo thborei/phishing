@@ -76,13 +76,13 @@ class CampagnController
                 foreach ($users as $userId) {
                     $user = $this->userRepository->getUser($userId);
                     if ($user) {
-                        $user->EnvoieMail();
+                        $user->EnvoieMail($url);
                     }
                 }
             } elseif ($cible === 'service') {
                 $users = $this->userRepository->getUsersByService($service);
                 foreach ($users as $user) {
-                    $user->EnvoieMail();
+                    $user->EnvoieMail($url);
                 }
             }
 

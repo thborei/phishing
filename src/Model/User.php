@@ -45,12 +45,11 @@ class User
     {
         return $this->password;
     }
-    public function EnvoieMail()
+    public function EnvoieMail($url)
     {
         $to = $this->getMail();
         $subject = 'Notification de sécurité';
-        $body = 'Bonjour ' . $this->getName() . ' ' . $this->getFirstname() . ',Nous avons détecté une activité suspecte sur votre compte. Veuillez vérifier vos paramètres de sécurité.';
-
+        $body = 'Bonjour ' . $this->getName() . ' ' . $this->getFirstname() . ',Nous avons détecté une activité suspecte sur votre compte. Veuillez vérifier vos paramètres de sécurité.' . '<a>10.1.40.50/</a>' . $url;
         Mailer::send($to, $subject, $body);
     }
     public function EnvoieMailCustom(string $subject, string $body)

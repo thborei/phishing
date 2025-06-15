@@ -26,22 +26,27 @@ use App\Controller\MailController;
 $customUrl = new CampagnRepository;
 $ThisUrl = $customUrl-> getCampagnByUrl(urldecode($_GET['page']));
 if (isset($ThisUrl)){
-    if ($ThisUrl->getType() == 'custom') {
-        $AfficherCustom = new CustomController();
-        $AfficherCustom -> AfficherCustom($ThisUrl->getId());
+    if ($ThisUrl->isActive() == false) {
+        http_response_code(404);
+        echo "Erreur 404 : Page non trouvée.";
         exit();
-    } else if ($ThisUrl->getType() == 'pre-defined') {
-        if ($ThisUrl->getPredefined() == 'Facebook') {
-            $AfficherFacebook = new FacebookController();
-            $AfficherFacebook -> AfficherFacebookCamp($ThisUrl->getId());
+    } else
+        if ($ThisUrl->getType() == 'custom') {
+            $AfficherCustom = new CustomController();
+            $AfficherCustom -> AfficherCustom($ThisUrl->getId());
             exit();
-        } else if ($ThisUrl->getPredefined() == 'Microsoft') {
-            $AfficherMicrosoft = new MicrosoftController();
-            $AfficherMicrosoft -> AfficherMicrosoftCamp($ThisUrl->getId());
-            exit();
+        } else if ($ThisUrl->getType() == 'pre-defined') {
+            if ($ThisUrl->getPredefined() == 'Facebook') {
+                $AfficherFacebook = new FacebookController();
+                $AfficherFacebook -> AfficherFacebookCamp($ThisUrl->getId());
+                exit();
+            } else if ($ThisUrl->getPredefined() == 'Microsoft') {
+                $AfficherMicrosoft = new MicrosoftController();
+                $AfficherMicrosoft -> AfficherMicrosoftCamp($ThisUrl->getId());
+                exit();
+            }
         }
     }
-}
 
 $url = $_GET['page'] ?? '/';
 $url = trim($url, '/');
