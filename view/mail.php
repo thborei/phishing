@@ -1,6 +1,6 @@
 <h2>Envoyer un mail à <?= htmlspecialchars($user->getName()) ?></h2>
 
-<form method="post" action="/user/send<?= $user->getIduser() ?>">
+<form method="post" action="/mail/<?= $user->getIduser() ?>/send">
     <div class="form-group">
         <label for="subject">Objet :</label>
         <input type="text" id="subject" name="subject" class="form-control" required>

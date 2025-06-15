@@ -18,8 +18,8 @@
                     <td data-label="Mail"><?= htmlspecialchars($user->getJsonMail()) ?></td>
                     <td data-label="Mot de passe"><?= htmlspecialchars($user->getJsonPassword()) ?></td>
                     <td data-label="Actions">
-                        <a href="user/mail/<?= $user->getIduser()?>" class="bouton-campagne">Contacter</a><br>
-                        <a href="list/<?= $user->getIduser() ?>" class="bouton-campagne">Liste</a>
+                        <a href="/mail/<?= $user->getIduser()?>" class="bouton-campagne">Contacter</a><br>
+                        <a href="/list/<?= $user->getIduser() ?>" class="bouton-campagne">Liste</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
