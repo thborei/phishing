@@ -40,7 +40,7 @@ public function sendMail($id)
     }
 
     $user->EnvoieMailCustom($subject, $body);
-    header('Location: /liste-des-utilisateurs'); // ou la page précédente
+    header('Location: /acceuil');
     exit;
 }
 }
